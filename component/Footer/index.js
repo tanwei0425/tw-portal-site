@@ -3,8 +3,8 @@
  * @Author: tanwei
  * @Date: 2020-10-18 18:29:48
  * @LastEditors: tanwei
- * @LastEditTime: 2020-10-20 11:17:21
- * @FilePath: /jianli/web-index/component/Footer/index.js
+ * @LastEditTime: 2020-12-22 16:37:32
+ * @FilePath: /web-index/component/Footer/index.js
  */
 import React, { Component } from 'react';
 import TweenOne from 'rc-tween-one';
@@ -25,7 +25,7 @@ class Footer extends Component {
                 <Col key={i.toString()} {...itemProps} title={null} content={null}>
                     <h2 {...title}>
                         {typeof title.children === 'string' &&
-                            title.children.match(isImg) ? (
+                            title.isImg ? (
                                 <img src={title.children} width="100%" alt="img" />
                             ) : (
                                 title.children

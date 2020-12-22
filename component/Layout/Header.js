@@ -3,8 +3,8 @@
  * @Author: tanwei
  * @Date: 2020-10-09 13:27:13
  * @LastEditors: tanwei
- * @LastEditTime: 2020-10-20 17:48:47
- * @FilePath: /jianli/web-index/component/layout/header.js
+ * @LastEditTime: 2020-12-22 16:08:54
+ * @FilePath: /web-index/component/Layout/Header.js
  */
 import React, { Component } from 'react';
 import Head from 'next/head';
@@ -19,11 +19,11 @@ export default class Header extends Component {
         return (
             <>
                 <Head>
-                    <title>{title} - 谭伟个人门户</title>
+                    <title>{title} - 谭伟的个人前端</title>
                     <meta charSet='utf-8' />
                     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-                    <meta name="keywords" content={`${title} - 谭伟个人门户`} />
-                    <meta name="description" content={`${title} - 谭伟个人门户`} />
+                    <meta name="keywords" content={`${title} - 谭伟的个人前端`} />
+                    <meta name="description" content={`${title} - 谭伟的个人前端`} />
                 </Head>
                 {isHeader && <Nav
                     id="nav"

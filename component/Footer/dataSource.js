@@ -3,8 +3,8 @@
  * @Author: tanwei
  * @Date: 2020-10-18 18:31:36
  * @LastEditors: tanwei
- * @LastEditTime: 2020-10-18 18:32:26
- * @FilePath: /jianli/web-index/component/Footer/dataSource.js
+ * @LastEditTime: 2020-12-22 16:49:05
+ * @FilePath: /web-index/component/Footer/dataSource.js
  */
 export const FooterDataSource = {
     wrapper: { className: 'home-page-wrapper footer1-wrapper' },
@@ -20,15 +20,17 @@ export const FooterDataSource = {
                 className: 'block',
                 title: {
                     className: 'logo',
+                    isImg: true,
                     children:
-                        'https://zos.alipayobjects.com/rmsportal/qqaimmXZVSwAhpL.svg',
+                        '/static/indexLogo.png',
+                    // 'https://zos.alipayobjects.com/rmsportal/qqaimmXZVSwAhpL.svg',
                 },
                 childWrapper: {
                     className: 'slogan',
                     children: [
                         {
                             name: 'content0',
-                            children: 'Animation specification and components of Ant Design.',
+                            children: '比较懒不知道写点什么',
                         },
                     ],
                 },
@@ -41,10 +43,9 @@ export const FooterDataSource = {
                 title: { children: '产品' },
                 childWrapper: {
                     children: [
-                        { name: 'link0', href: '#', children: '产品更新记录' },
-                        { name: 'link1', href: '#', children: 'API文档' },
-                        { name: 'link2', href: '#', children: '快速入门' },
-                        { name: 'link3', href: '#', children: '参考指南' },
+                        { name: 'link0', href: '#', children: '个人组件库' },
+                        { name: 'link1', href: '#', children: '个人后台管理系统' },
+                        { name: 'link2', href: '#', children: '个人简历' },
                     ],
                 },
             },
@@ -56,8 +57,10 @@ export const FooterDataSource = {
                 title: { children: '关于' },
                 childWrapper: {
                     children: [
-                        { href: '#', name: 'link0', children: 'FAQ' },
-                        { href: '#', name: 'link1', children: '联系我们' },
+                        { href: '#', name: 'link1', children: '联系方式' },
+                        { href: '#', name: 'link2', children: 'QQ' },
+                        { href: '#', name: 'link3', children: 'tel' },
+                        { href: '#', name: 'link4', children: '微信' },
                     ],
                 },
             },
@@ -69,8 +72,8 @@ export const FooterDataSource = {
                 title: { children: '资源' },
                 childWrapper: {
                     children: [
-                        { href: '#', name: 'link0', children: 'Ant Design' },
-                        { href: '#', name: 'link1', children: 'Ant Motion' },
+                        { href: '#', name: 'link0', children: '资源1' },
+                        { href: '#', name: 'link1', children: '志愿2' },
                     ],
                 },
             },
@@ -82,8 +85,10 @@ export const FooterDataSource = {
         className: 'copyright',
         children: (
             <span>
-                ©2018 by <a href="https://motion.ant.design">Ant Motion</a> All Rights
-          Reserved
+                © 2020 hellotanwei.cn 版权所有
+                ICP证 : <a href="http://beian.miit.gov.cn">
+                    鲁ICP备19058798号-2
+                </a>
             </span>
         ),
     },

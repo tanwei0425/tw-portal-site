@@ -15,7 +15,7 @@ export const IndicatorsDataSource = {
         },
         children: [
             {
-                title: { className: 'feature6-title-text', children: '服务指标' },
+                title: { className: 'feature6-title-text', children: 'XXXXXX' },
                 className: 'feature6-item',
                 name: 'block0',
                 children: [
@@ -61,7 +61,7 @@ export const IndicatorsDataSource = {
                 ],
             },
             {
-                title: { className: 'feature6-title-text', children: '服务指标' },
+                title: { className: 'feature6-title-text', children: 'XXXXXX1' },
                 className: 'feature6-item',
                 name: 'block1',
                 children: [

@@ -3,8 +3,8 @@
  * @Author: tanwei
  * @Date: 2020-10-18 18:34:51
  * @LastEditors: tanwei
- * @LastEditTime: 2020-10-21 21:42:41
- * @FilePath: /jianli/web-index/component/Banner/dataSource.js
+ * @LastEditTime: 2020-12-22 16:08:47
+ * @FilePath: /web-index/component/Banner/dataSource.js
  */
 
 export const BannerDataSource = {
@@ -23,7 +23,7 @@ export const BannerDataSource = {
                 },
                 content: {
                     className: 'banner1-content',
-                    children: '谭伟的个人门户网站',
+                    children: '谭伟的个人前端',
                 },
                 button: { className: 'banner1-button', children: 'Learn More' },
             },
