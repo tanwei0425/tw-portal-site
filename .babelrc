@@ -1,0 +1,31 @@
+{
+    "presets": [
+        "next/babel"
+    ],
+    "plugins": [
+        // 可以使用装饰器decorator
+        [
+            "@babel/plugin-proposal-decorators",
+            {
+                "legacy": true
+            }
+        ],
+        // 让我们可以使用根路径，避免相对路径的混乱，如import Head from '@/components/Head'
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "@": "./"
+                }
+            }
+        ],
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "libraryDirectory": "lib",
+                "style": true
+            }
+        ]
+    ]
+}

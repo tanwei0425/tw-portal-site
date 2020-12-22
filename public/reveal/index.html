@@ -1,0 +1,57 @@
+<!--
+ * @Descripttion: 
+ * @Author: tanwei
+ * @Date: 2020-09-09 17:42:34
+ * @LastEditors: tanwei
+ * @LastEditTime: 2020-10-27 14:20:31
+ * @FilePath: /jianli/web-index/public/reveal/index.html
+-->
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="./dist/reset.css">
+	<link rel="stylesheet" href="./dist/reveal.css">
+	<link rel="stylesheet" href="./dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="./plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div onclick="goBack()"
+			style="position: fixed; top: 24px;right: 24px;z-index: 99999; color: #1890FF;font-size: 18px;cursor: pointer;">
+			返回首页
+		</div>
+		<div class="slides">
+			<section>Slide 1</section>
+			<section>Slide 2</section>
+		</div>
+	</div>
+
+	<script src="./dist/reveal.js"></script>
+	<script src="./plugin/notes/notes.js"></script>
+	<script src="./plugin/markdown/markdown.js"></script>
+	<script src="./plugin/highlight/highlight.js"></script>
+	<script>
+		function goBack() {
+			window.history.back()
+		}
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
