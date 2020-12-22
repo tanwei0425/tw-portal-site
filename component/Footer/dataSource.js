@@ -3,7 +3,7 @@
  * @Author: tanwei
  * @Date: 2020-10-18 18:31:36
  * @LastEditors: tanwei
- * @LastEditTime: 2020-12-22 16:49:05
+ * @LastEditTime: 2020-12-22 17:24:08
  * @FilePath: /web-index/component/Footer/dataSource.js
  */
 export const FooterDataSource = {
@@ -86,7 +86,7 @@ export const FooterDataSource = {
         children: (
             <span>
                 © 2020 hellotanwei.cn 版权所有
-                ICP证 : <a href="http://beian.miit.gov.cn">
+                ICP证 : <a target="_blank" rel="noopener noreferrer" href="http://beian.miit.gov.cn">
                     鲁ICP备19058798号-2
                 </a>
             </span>
