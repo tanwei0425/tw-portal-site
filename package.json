@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "pm2Start": "pm2 start npm --name 'nextjs-index' -- run start",
     "export": "next export",
     "analyzer": "ANALYZE=true next build"
   },

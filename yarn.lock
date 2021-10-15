@@ -5128,8 +5128,8 @@ rc-progress@~3.1.0:
 
 rc-queue-anim@^1.8.5:
   version "1.8.5"
-  resolved "https://registry.npm.taobao.org/rc-queue-anim/download/rc-queue-anim-1.8.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frc-queue-anim%2Fdownload%2Frc-queue-anim-1.8.5.tgz#01ef3872bdfa0b70bb915ef9a637fc404244a589"
-  integrity sha1-Ae84cr36C3C7kV75pjf8QEJEpYk=
+  resolved "https://registry.yarnpkg.com/rc-queue-anim/-/rc-queue-anim-1.8.5.tgz#01ef3872bdfa0b70bb915ef9a637fc404244a589"
+  integrity sha512-vTbZXBu7L3NcXUPjkFN7R80BE+1VYL1QBI10EioYYqZMk6A0iVbjoVAgfoK/Z4gIIxp399gJ8LqbMnQA1AhcXA==
   dependencies:
     babel-runtime "6.x"
     prop-types "^15.6.0"

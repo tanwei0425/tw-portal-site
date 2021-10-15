@@ -152,7 +152,7 @@ export const NavDataSource = {
                 typelink: 'href',
                 className: 'header0-item',
                 children: {
-                    href: 'https://admin.hellotanwei.cn',
+                    href: 'https://admin.hellotanwei.cn/login',
                     target: "_blank",
                     children: [{ children: '后台管理', name: 'text' }],
                 },
