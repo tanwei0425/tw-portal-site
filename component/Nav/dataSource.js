@@ -1,9 +1,5 @@
 
 export const NavDataSource = {
-    wrapper: {
-        className: 'header0 home-page-wrapper kgdvgox2cx-editor_css',
-        mobileClassName: 'header0Mobile'
-    },
     page: { className: 'home-page' },
     Menu: {
         className: 'header0-menu',

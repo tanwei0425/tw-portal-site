@@ -15,7 +15,7 @@ import {
 
 export default class Header extends Component {
     render() {
-        const { isMobile, isHeader, title } = this.props
+        const { isMobile, isHeader, title, fixed } = this.props
         return (
             <>
                 <Head>
@@ -28,6 +28,7 @@ export default class Header extends Component {
                 {isHeader && <Nav
                     id="nav"
                     key="nav"
+                    fixed={fixed}
                     dataSource={NavDataSource}
                     isMobile={isMobile}
                 />}

@@ -34,7 +34,7 @@ class Nav extends Component {
         Router.push(link)
     }
     render() {
-        const { dataSource, isMobile, ...props } = this.props;
+        const { dataSource, isMobile, fixed, ...props } = this.props;
         const { phoneOpen, current } = this.state;
         const navData = dataSource.Menu.children;
         const navChildren = navData.map((item) => {
@@ -82,8 +82,8 @@ class Nav extends Component {
         const moment = phoneOpen === undefined ? 300 : null;
 
         const headerNavClass = classnames(
-            dataSource.wrapper.className,
-            isMobile && dataSource.wrapper.mobileClassName
+            'header0 home-page-wrapper kgdvgox2cx-editor_css',
+            fixed && !isMobile && 'header0Fixed',
         )
         const menuClass = classnames(
             isMobile ? 'header0-menu-navMobile' : 'header0-menu-nav'

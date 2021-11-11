@@ -96,7 +96,7 @@ export default class Home extends React.Component {
       />,
     ];
     return (
-      <Layout title={'首页'}>
+      <Layout title={'首页'} fixed={true}>
         <div
           className="templates-wrapper"
           ref={(d) => {

@@ -1,23 +1,18 @@
 @header0: header0;
-@header0Mobile: header0Mobile;
+@header0Fixed: header0Fixed;
 
-// 手机版特殊处理
-.@{header0Mobile}{
-  background:  #001529!important;
-  .home-page {
-    padding: 0 24px;
-    display: block!important;
-  }
-  // opacity: 1;
-  // transition: opacity 1200ms ease-out, transform 600ms ease-out;
+.@{header0Fixed} {
+  position  : fixed!important;
+  background: @template-nav-bg-color!important;
 }
 
 .@{header0} {
-  background: @template-nav-bg-color;
+  background: @template-bg-color;
   width     : 100%;
   z-index   : 99999;
   box-shadow: 0 5px 8px fade(#000, 15);
-  position  : fixed;
+ 
+  position  : relative;
   top       : 0;
   // opacity   : 1;
   // transition: opacity .5s;
@@ -125,6 +120,7 @@
       position: relative;
       overflow: hidden;
       .home-page {
+        display: block!important;
         padding: 0 24px;
       }
     } 
@@ -137,7 +133,6 @@
       width     : ~"calc(100% + 48px)";
       opacity   : 0;
       transition: opacity .3s @ease-in-out;
-
       & li {
         padding: 0 24px;
 
