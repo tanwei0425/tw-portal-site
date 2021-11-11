@@ -1,10 +1,19 @@
 @banner1: banner1;
+@banner1Mobile: bannerMobile;
 
-.@{banner1} {
+// 手机版特殊处理
+.@{banner1Mobile} {
   // 如果在第一屏且导航位置为 relative, 一屏为 height: calc(~"100vh - 64px");
+  height      : calc(~"100vh - 64px")!important;
+  .banner1-text-wrapper{
+    top       : 20%!important;
+  }
+}
+.@{banner1} {
   width       : 100%;
-  height      : calc(~"100vh - 64px");
+  height: 100vh;
   position    : relative;
+  z-index: 98;
   border-color: #666;
   background  : #fff;
 
@@ -31,16 +40,14 @@
   }
 
   .bg0 {
-    background: url("https://zos.alipayobjects.com/rmsportal/gGlUMYGEIvjDOOw.jpg") center;
+    background: url("/static/banner1.jpg") center;
   }
 
   .bg1 {
-    background: url("https://zos.alipayobjects.com/rmsportal/hzPBTkqtFpLlWCi.jpg") center;
+    background: url("/static/banner2.jpg") center;
   }
 
-  .bg2 {
-    background: url("https://zos.alipayobjects.com/rmsportal/xHxWkcvaIcuAdQl.jpg") center;
-  }
+
 
   .bg {
     width          : 100%;
@@ -64,7 +71,7 @@
   & &-text-wrapper {
     display   : block;
     position  : relative;
-    top       : 20%;
+    top       : 32%; 
     left      : 0;
     right     : 0;
     margin    : auto;
@@ -84,8 +91,16 @@
   }
 
   & &-content {
+    margin-bottom: 10px;
+    font-size    : 25px;
+    word-wrap    : break-word;
+    color        : @template-text-color-light;
+  }
+
+  & &-describe {
     margin-bottom: 20px;
     word-wrap    : break-word;
+    color        : @template-text-color-light;
   }
 
   & &-button {
@@ -134,12 +149,16 @@
   }
 }
 
-.banner-anim-thumb-default span {
-  width        : 10px;
-  height       : 10px;
-  border-radius: 10px;
+.banner1 .banner-anim-thumb-default span {
+  width        : 16px;
+  height       : 3px;
+  border-radius: 2px;
   background   : rgba(255, 255, 255, .5);
 }
+.banner1 .banner-anim-thumb-default span.active {
+  width        : 24px;
+}
+
 
 @media screen and (max-width: 767px) {
   .@{banner1} {

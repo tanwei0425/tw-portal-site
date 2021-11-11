@@ -1,24 +1,44 @@
 @header0: header0;
+@header0Mobile: header0Mobile;
+
+// 手机版特殊处理
+.@{header0Mobile}{
+  z-index: 97!important;
+  background:  #001529!important;
+  position  : relative!important;
+  .home-page {
+    padding: 0 24px;
+    display: block!important;
+  }
+  // opacity: 1;
+  // transition: opacity 1200ms ease-out, transform 600ms ease-out;
+}
 
 .@{header0} {
   background: @template-nav-bg-color;
   width     : 100%;
-  z-index   : 1;
+  z-index: 99;
   box-shadow: 0 5px 8px fade(#000, 15);
-  position  : relative;
+  position  : fixed;
   top       : 0;
-
+  // opacity   : 1;
+  // transition: opacity .5s;
+  // transition: opacity 1200ms ease-out, transform 600ms ease-out;
+ 
   .home-page {
     padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &-logo {
-    display    : inline-block;
+    display    : flex;
     position   : relative;
-    width      : 150px;
+    width      : 280px;
     line-height: 64px;
     height     : 64px;
-
+    color: #fff;
+    font-size: 24px;
     & img {
       vertical-align: middle;
       display       : inline-block;
@@ -31,11 +51,16 @@
 
   &-menu {
     float: right;
-
-    .ant-menu {
-      line-height: 62px;
-      height     : 64px;
-
+    &-navMobile{
+      background: @template-nav-bg-color;
+      a {
+        display: block;
+      }
+    }
+    &-nav {
+      line-height: 62px!important;
+      height     : 64px!important;
+      background: transparent!important;
       a {
         display: block;
       }

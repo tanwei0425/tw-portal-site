@@ -13,12 +13,14 @@ import { enquireScreen } from 'enquire-js';
 import Layout from '@/component/Layout'
 import Banner from '@/component/Banner';
 import Company from '@/component/Company';
+import Project from '@/component/Project';
 import Technique from '@/component/Technique';
 import Indicators from '@/component/Indicators';
 import Teams from '@/component/Teams';
 import AnchorPoint from '@/component/AnchorPoint';
 import { BannerDataSource } from '@/component/Banner/dataSource'
 import { CompanyDataSource } from '@/component/Company/dataSource'
+import { ProjectDataSource } from '@/component/Project/dataSource'
 import { TechniqueDataSource } from '@/component/Technique/dataSource'
 import { IndicatorsDataSource } from '@/component/Indicators/dataSource'
 import { TeamsDataSource } from '@/component/Teams/dataSource'
@@ -60,26 +62,35 @@ export default class Home extends React.Component {
         dataSource={TechniqueDataSource}
         isMobile={isMobile}
       />,
-      <Indicators
-        id="indicators"
-        key="indicators"
-        dataSource={IndicatorsDataSource}
+      <Project
+        id="project"
+        key="project"
+        dataSource={ProjectDataSource}
         isMobile={isMobile}
       />,
-      <Teams
-        id="teams"
-        key="teams"
-        dataSource={TeamsDataSource}
-        isMobile={isMobile}
-      />,
+      // <Indicators
+      //   id="indicators"
+      //   key="indicators"
+      //   dataSource={IndicatorsDataSource}
+      //   isMobile={isMobile}
+      // />,
+      // <Teams
+      //   id="teams"
+      //   key="teams"
+      //   dataSource={TeamsDataSource}
+      //   isMobile={isMobile}
+      // />,
       <AnchorPoint
         key="AnchorPoint"
         data={[
+          // 'nav',
           'banner',
           'company',
           'technique',
-          'indicators',
-          'teams',
+          'project',
+          // 'indicators',
+          // 'teams',
+          // 'footer',
         ]}
         size="point-large"
       />,

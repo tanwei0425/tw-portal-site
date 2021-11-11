@@ -11,22 +11,27 @@ import Link from 'rc-scroll-anim/lib/ScrollLink';
 import { Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import QueueAnim from 'rc-queue-anim';
+import Texty from 'rc-texty';
+import classnames from 'classnames'
 import TweenOne, { TweenOneGroup } from 'rc-tween-one';
 import BannerAnim, { Element } from 'rc-banner-anim';
 import 'rc-banner-anim/assets/index.css';
+import 'rc-texty/assets/index.css';
 
 const { BgElement } = Element;
 class Banner extends PureComponent {
+
   render() {
     const { ...props } = this.props;
-    const { dataSource } = props;
+    const { dataSource, isMobile } = props;
+    const { className, ...rest } = dataSource.wrapper
     delete props.dataSource;
-    delete props.isMobile;
     const childrenToRender = dataSource.BannerAnim.children.map((item, i) => {
       const elem = item.BannerElement;
       const elemClassName = elem.className;
       delete elem.className;
-      const { bg, textWrapper, title, content, button } = item;
+      const { bg, textWrapper, title, content, describe, button } = item;
+
       return (
         <Element key={i.toString()}  {...elem} prefixCls={elemClassName}>
           <BgElement key="bg" {...bg} />
@@ -36,25 +41,38 @@ class Banner extends PureComponent {
             key="text"
             {...textWrapper}
           >
-            <div key="logo" {...title}>
+            {title && <div key="logo" {...title}>
               {typeof title.children === 'string' ? (
                 <img src={title.children} width="100%" alt="img" />
               ) : (
-                  title.children
-                )}
-            </div>
-            <div key="content" {...content}>
+                title.children
+              )}
+            </div>}
+            {content && <Texty
+              key="content"
+              {...content}
+            >
               {content.children}
-            </div>
-            <Button ghost key="button" {...button}>
+            </Texty>}
+            {describe && <Texty
+              key="describe"
+              {...describe}
+            >
+              {describe.children}
+            </Texty>}
+            {button && <Button ghost key="button" {...button}>
               {button.children}
-            </Button>
+            </Button>}
           </QueueAnim>
         </Element>
       );
     });
+    const bannerClass = classnames(
+      className,
+      isMobile && 'bannerMobile'
+    )
     return (
-      <div {...props} {...dataSource.wrapper}>
+      <div {...props} {...rest} className={bannerClass}>
         <TweenOneGroup
           key="bannerGroup"
           enter={{ opacity: 0, type: 'from' }}

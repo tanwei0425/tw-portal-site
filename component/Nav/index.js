@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Router from 'next/router'
 import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
+import classnames from 'classnames'
 import { getChildrenToRender } from '@/utils';
 import { ColorChangeLogo } from '@/component/Logo'
 
@@ -79,11 +80,19 @@ class Nav extends Component {
             );
         });
         const moment = phoneOpen === undefined ? 300 : null;
+
+        const headerNavClass = classnames(
+            dataSource.wrapper.className,
+            isMobile && dataSource.wrapper.mobileClassName
+        )
+        const menuClass = classnames(
+            isMobile ? 'header0-menu-navMobile' : 'header0-menu-nav'
+        )
         return (
             <TweenOne
                 component="header"
-                animation={{ opacity: 0, type: 'from' }}
-                {...dataSource.wrapper}
+                animation={{ type: 'from' }}
+                className={headerNavClass}
                 {...props}
             >
                 <div
@@ -95,6 +104,7 @@ class Nav extends Component {
                         className={'header0-logo'}
                     >
                         <ColorChangeLogo onClick={() => Router.push('/')} style={{ fontSize: '3.5rem', cursor: 'pointer' }} />
+                        {!isMobile && <span style={{ marginLeft: 15 }}>T COLLECTION V1</span>}
                     </TweenOne>
                     {isMobile && (
                         <div
@@ -128,6 +138,7 @@ class Nav extends Component {
                         reverse={!!phoneOpen}
                     >
                         <Menu
+                            className={menuClass}
                             onClick={this.handleClick}
                             selectedKeys={[current]}
                             mode={isMobile ? 'inline' : 'horizontal'}
