@@ -3,9 +3,9 @@
 
 // 手机版特殊处理
 .@{header0Mobile}{
-  z-index: 97!important;
+  // z-index: 97!important;
   background:  #001529!important;
-  position  : relative!important;
+  position  :static!important;
   .home-page {
     padding: 0 24px;
     display: block!important;
@@ -17,7 +17,7 @@
 .@{header0} {
   background: @template-nav-bg-color;
   width     : 100%;
-  z-index: 99;
+  z-index   : 99999;
   box-shadow: 0 5px 8px fade(#000, 15);
   position  : fixed;
   top       : 0;
@@ -122,9 +122,14 @@
       z-index: 101;
     }
 
-    &.home-page-wrapper .home-page {
-      padding: 0 24px;
-    }
+    &.home-page-wrapper{
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      .home-page {
+        padding: 0 24px;
+      }
+    } 
 
     &-menu {
       height    : auto;
