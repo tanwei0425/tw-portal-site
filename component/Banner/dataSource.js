@@ -60,7 +60,7 @@ export const BannerDataSource = {
         ],
         type: ['across'],
         autoPlaySpeed: 5000,
-        // autoPlay: true,
+        autoPlay: true,
         sync: false,
         arrow: false,
         // thumb: false,
