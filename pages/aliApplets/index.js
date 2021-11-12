@@ -7,7 +7,7 @@
  * @LastEditTime: 2020-10-20 14:12:08
  * @FilePath: /jianli/web-index/pages/aliApplets/index.js
  */
-import Layout from '@/component/Layout'
+import Layout from '@/layout'
 function aliApolets() {
     return (
         <Layout title={'支付宝小程序'}>
@@ -17,13 +17,13 @@ function aliApolets() {
                         Welcome 11111 to <a href="https://nextjs.org">aliApolets.js!</a>
                     </h1>1
 
-                <p className={'description'}>
+                    <p className={'description'}>
                         Get started by editing{' '}
                         <code className={'code'}>pages/index.js</code>
                     </p>312312
 
-                312321321
-            </main>
+                    312321321
+                </main>
             </div>
         </Layout>
     )

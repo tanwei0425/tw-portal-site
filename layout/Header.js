@@ -15,7 +15,7 @@ import {
 
 export default class Header extends Component {
     render() {
-        const { isMobile, isHeader, title, fixed } = this.props
+        const { isMobile, hideHeader, title, fixed } = this.props
         return (
             <>
                 <Head>
@@ -25,13 +25,14 @@ export default class Header extends Component {
                     <meta name="keywords" content={`${title} - 谭伟的个人前端`} />
                     <meta name="description" content={`${title} - 谭伟的个人前端`} />
                 </Head>
-                {isHeader && <Nav
+                <Nav
                     id="nav"
                     key="nav"
                     fixed={fixed}
+                    hideHeader={hideHeader}
                     dataSource={NavDataSource}
                     isMobile={isMobile}
-                />}
+                />
             </>
         );
     }

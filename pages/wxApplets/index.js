@@ -7,13 +7,13 @@
  * @FilePath: /jianli/web-index/pages/wxApplets/index.js
  */
 import React from 'react'
-import Layout from '@/component/Layout'
+import Layout from '@layout'
 const wxApplets = () => {
     return (
         <Layout title={'微信小程序'}>
             <div>
                 wxApplets
-        </div>
+            </div>
         </Layout>
     )
 }

@@ -9,7 +9,7 @@
  */
 import Router from 'next/router'
 import { Result, Button } from 'antd';
-import Layout from '@/component/Layout'
+import Layout from '@/layout'
 
 export default function Home() {
     return (

@@ -22,8 +22,7 @@ const { BgElement } = Element;
 class Banner extends PureComponent {
 
   render() {
-    const { ...props } = this.props;
-    const { dataSource, isMobile } = props;
+    const { dataSource, isMobile, ...props } = this.props;
     const { className, ...rest } = dataSource.wrapper
     delete props.dataSource;
     const childrenToRender = dataSource.BannerAnim.children.map((item, i) => {
@@ -31,7 +30,6 @@ class Banner extends PureComponent {
       const elemClassName = elem.className;
       delete elem.className;
       const { bg, textWrapper, title, content, describe, button } = item;
-
       return (
         <Element key={i.toString()}  {...elem} prefixCls={elemClassName}>
           <BgElement key="bg" {...bg} />

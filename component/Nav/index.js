@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Router from 'next/router'
 import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
@@ -8,12 +8,13 @@ import { ColorChangeLogo } from '@/component/Logo'
 
 const { Item, SubMenu } = Menu;
 
-class Nav extends Component {
+class Nav extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             phoneOpen: undefined,
-            current: undefined
+            current: undefined,
+            headerStatus: true
         };
     }
 
@@ -26,6 +27,7 @@ class Nav extends Component {
     componentDidMount() {
         this.setState({ current: Router?.router?.pathname })
     }
+
     handleClick = (e) => {
         const link = e?.key
         const typeLink = e?.item?.props?.typelink
@@ -33,9 +35,16 @@ class Nav extends Component {
         this.setState({ current: link })
         Router.push(link)
     }
+
+    hideHeaderChange = (status) => {
+        this.setState({
+            headerStatus: status
+        })
+    }
+
     render() {
-        const { dataSource, isMobile, fixed, ...props } = this.props;
-        const { phoneOpen, current } = this.state;
+        const { dataSource, isMobile, hideHeader: hideHeaderProps, fixed, ...props } = this.props;
+        const { phoneOpen, current, headerStatus } = this.state;
         const navData = dataSource.Menu.children;
         const navChildren = navData.map((item) => {
             const { children: a, subItem, ...itemProps } = item;
@@ -82,14 +91,17 @@ class Nav extends Component {
         const moment = phoneOpen === undefined ? 300 : null;
 
         const headerNavClass = classnames(
-            'header0 home-page-wrapper kgdvgox2cx-editor_css',
+            'header0 header-page-wrapper kgdvgox2cx-editor_css',
             fixed && !isMobile && 'header0Fixed',
+            (!headerStatus || !hideHeaderProps) && !isMobile && 'header0FixedHover',
         )
         const menuClass = classnames(
             isMobile ? 'header0-menu-navMobile' : 'header0-menu-nav'
         )
         return (
             <TweenOne
+                onMouseOver={this.hideHeaderChange.bind(this, false)}
+                onMouseOut={this.hideHeaderChange.bind(this, true)}
                 component="header"
                 animation={{ type: 'from' }}
                 className={headerNavClass}
@@ -103,9 +115,9 @@ class Nav extends Component {
                         animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
                         className={'header0-logo'}
                     >
-                        <ColorChangeLogo onClick={() => Router.push('/')} style={{ fontSize: '3.5rem', cursor: 'pointer' }} />
-                        {!isMobile && <span style={{ marginLeft: 15 }}>T COLLECTION V1</span>}
+                        <ColorChangeLogo className={'header0-logo-img'} onClick={() => Router.push('/')} />
                     </TweenOne>
+                    {!isMobile && <span className={'header0-title'} >T COLLECTION V1</span>}
                     {isMobile && (
                         <div
                             {...dataSource.mobileMenu}

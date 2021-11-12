@@ -5,11 +5,11 @@ export const TechniqueDataSource = {
     titleWrapper: {
         className: 'title-wrapper',
         children: [
-            { name: 'title', children: '客户案例', className: 'title-h1' },
+            { name: 'title', children: '我的技术栈', className: 'title-h1' },
             {
                 name: 'content',
                 className: 'title-content',
-                children: '在这里用一段话介绍服务的案例情况',
+                children: 'WO DE JI SHU ZHAN',
             },
         ],
     },

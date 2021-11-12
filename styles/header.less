@@ -1,9 +1,28 @@
 @header0: header0;
 @header0Fixed: header0Fixed;
 
+@headerTransition:opacity .6s ease-out, transform .3s ease-out;
+@headerHeight:64px;
+
 .@{header0Fixed} {
   position  : fixed!important;
   background: @template-nav-bg-color!important;
+}
+
+.header0FixedHover{
+ .header0-logo {
+    opacity   : 1!important;
+    transition: @headerTransition;
+  }
+  .header0-title{
+    position: relative;
+    left: 80px;
+    transform: translateX(0);
+  }
+   .header0-menu {
+    opacity   : 1!important;
+    transition:@headerTransition;
+   }
 }
 
 .@{header0} {
@@ -11,39 +30,46 @@
   width     : 100%;
   z-index   : 99999;
   box-shadow: 0 5px 8px fade(#000, 15);
- 
   position  : relative;
   top       : 0;
-  // opacity   : 1;
-  // transition: opacity .5s;
-  // transition: opacity 1200ms ease-out, transform 600ms ease-out;
- 
-  .home-page {
-    padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
+  height     : @headerHeight;
+  .header-page{
+    position: relative;
+    width: 90%;
+    margin:0 5%;
   }
-
   &-logo {
-    display    : flex;
-    position   : relative;
-    width      : 280px;
-    line-height: 64px;
-    height     : 64px;
+    position   : absolute;
+    left: 0;
+    width      : 100px;
     color: #fff;
     font-size: 24px;
-    & img {
-      vertical-align: middle;
-      display       : inline-block;
-    }
-
-    & a {
-      display: block;
+    opacity: 0;
+    transition: @headerTransition;
+    line-height: @headerHeight;
+    height     : @headerHeight;
+  
+    &-img {
+      font-size: 3.5rem;
+      cursor: pointer ;
     }
   }
-
+  &-title {
+    position: absolute;
+    text-align: center;
+    line-height: 64px;
+    transition: all .5s;
+    color: #fff;
+    font-size: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   &-menu {
-    float: right;
+    display: inline-block;
+    position:absolute;
+    right: 0;
+    opacity: 0;
+    transition: @headerTransition;
     &-navMobile{
       background: @template-nav-bg-color;
       a {
@@ -51,8 +77,8 @@
       }
     }
     &-nav {
-      line-height: 62px!important;
-      height     : 64px!important;
+      line-height: @headerHeight!important;
+      height     : @headerHeight!important;
       background: transparent!important;
       a {
         display: block;
@@ -111,21 +137,28 @@
 
 @media screen and (max-width: 767px) {
   .@{header0} {
+    line-height:auto;
+    height     : auto;
     &-logo {
       z-index: 101;
+      opacity: 1;
+      position  : relative;
     }
 
-    &.home-page-wrapper{
+    &.header-page-wrapper{
       width: 100%;
       position: relative;
       overflow: hidden;
-      .home-page {
+      .header-page {
         display: block!important;
         padding: 0 24px;
+        width: 100%;
+        margin: 0;
       }
     } 
 
     &-menu {
+      display: block;
       height    : auto;
       float     : inherit;
       position  : relative;

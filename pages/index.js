@@ -10,26 +10,22 @@
 /* eslint arrow-parens: 0 */
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
-import Layout from '@/component/Layout'
+import Layout from '@/layout'
 import Banner from '@/component/Banner';
 import Company from '@/component/Company';
 import Project from '@/component/Project';
 import Technique from '@/component/Technique';
-import Indicators from '@/component/Indicators';
-import Teams from '@/component/Teams';
 import AnchorPoint from '@/component/AnchorPoint';
 import { BannerDataSource } from '@/component/Banner/dataSource'
 import { CompanyDataSource } from '@/component/Company/dataSource'
 import { ProjectDataSource } from '@/component/Project/dataSource'
 import { TechniqueDataSource } from '@/component/Technique/dataSource'
-import { IndicatorsDataSource } from '@/component/Indicators/dataSource'
-import { TeamsDataSource } from '@/component/Teams/dataSource'
-
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isMobile: false,
+      hideHeader: true,
     };
   }
 
@@ -38,11 +34,24 @@ export default class Home extends React.Component {
     enquireScreen((b) => {
       this.setState({ isMobile: !!b });
     });
+    window.addEventListener('scroll', this.bindHandleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.bindHandleScroll);
+  }
+  bindHandleScroll = (event) => {
+    // 滚动的高度
+    const scrollTop = (event.srcElement ? event.srcElement.documentElement.scrollTop : false)
+      || window.pageYOffset
+      || (event.srcElement ? event.srcElement.body.scrollTop : 0);
+    this.setState({
+      hideHeader: scrollTop <= 30
+    })
   }
 
   render() {
-
-    const { isMobile } = this.state;
+    const { isMobile, hideHeader } = this.state;
     const children = [
       <Banner
         id="banner"
@@ -68,18 +77,6 @@ export default class Home extends React.Component {
         dataSource={ProjectDataSource}
         isMobile={isMobile}
       />,
-      // <Indicators
-      //   id="indicators"
-      //   key="indicators"
-      //   dataSource={IndicatorsDataSource}
-      //   isMobile={isMobile}
-      // />,
-      // <Teams
-      //   id="teams"
-      //   key="teams"
-      //   dataSource={TeamsDataSource}
-      //   isMobile={isMobile}
-      // />,
       <AnchorPoint
         key="AnchorPoint"
         data={[
@@ -88,15 +85,13 @@ export default class Home extends React.Component {
           'company',
           'technique',
           'project',
-          // 'indicators',
-          // 'teams',
           // 'footer',
         ]}
         size="point-large"
       />,
     ];
     return (
-      <Layout title={'首页'} fixed={true}>
+      <Layout title={'首页'} fixed={true} hideHeader={hideHeader}>
         <div
           className="templates-wrapper"
           ref={(d) => {

@@ -1,6 +1,6 @@
 
 export const NavDataSource = {
-    page: { className: 'home-page' },
+    page: { className: 'header-page' },
     Menu: {
         className: 'header0-menu',
         children: [
