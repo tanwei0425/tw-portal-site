@@ -1,50 +1,40 @@
 @content1: content1;
 
-.@{content1}-wrapper {
-  height: 360px;
-
-  .@{content1} {
+.@{content1} {
     height : 100%;
     padding: 0 24px;
-
+    margin:40px auto;
+    &-title{
+      text-align: center;
+        &-h1{
+          font-weight: 500;
+          font-size: 32px;
+          color: rgba(0, 0, 0, 0.85);
+          margin-bottom: 16px;
+      }
+    }
+  
     &-img {
+      width: 80%;
       height          : 100%;
       transform-origin: top;
       padding         : 0 32px;
       display         : flex;
       align-items     : center;
       justify-content : center;
-      span {
-        display: block;
-        width  : 250px;
-
-        img {
+      img {
           display: block;
-          width: 80%;
+          width: 50%;
           margin: auto;
           border-radius: 50%;
-        }
       }
     }
 
     &-text {
       padding: 0 32px;
       height : 100%;
-
-      .@{content1}-content,
-      .@{content1}-title {
-        position: relative !important;
-      }
-
-      .@{content1}-title {
-        font-size  : 32px;
-        font-weight: normal;
-        color      : #404040;
-        margin-top : 40px;
-      }
-
       .@{content1}-content-info {
-        margin-top: 10px;
+        margin-bottom: 10px;
         &-icon{
           font-size: 20px;
           margin-right: 10px;
@@ -58,23 +48,17 @@
         }
       }
     }
-  }
 }
 
 @media screen and (max-width: 767px) {
-  .@{content1}-wrapper {
-    height: 650px;
-
     .@{content1} {
       &-img {
-        height    : 160px;
         padding   : 0;
         text-align: center;
-        margin-top: 15px;
-
-        span {
+        margin-bottom: 25px;
+        img {
           display    : inline-block;
-          width      : 180px;
+          width      : 160px;
           height     : 160px;
           line-height: 160px;
           margin     : auto;
@@ -85,18 +69,6 @@
         height       : auto;
         text-align   : center;
         padding      : 0;
-
-        .@{content1}-content,
-        .@{content1}-title {
-          width: 100%;
-          top  : auto;
-        }
-
-        .@{content1}-title {
-          margin   : 16px auto;
-          font-size: 24px;
-        }
       }
     }
-  }
 }

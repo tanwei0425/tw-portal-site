@@ -1,14 +1,14 @@
 export const TechniqueDataSource = {
     wrapper: { className: 'home-page-wrapper content5-wrapper' },
     page: { className: 'home-page content5' },
-    OverPack: { playScale: 0.3, className: '' },
+    overPack: { playScale: 0.3, className: '' },
     titleWrapper: {
-        className: 'title-wrapper',
+        className: 'content5-title',
         children: [
-            { name: 'title', children: '我的技术栈', className: 'title-h1' },
+            { name: 'title', children: '我的技术栈', className: 'content5-title-h1' },
             {
                 name: 'content',
-                className: 'title-content',
+                className: 'content5-title-text',
                 children: 'WO DE JI SHU ZHAN',
             },
         ],
@@ -25,10 +25,11 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg',
+                        children: '/static/antd.png',
                     },
-                    content: { children: 'Ant Design' },
+                    content: {
+                        children: 'Ant Design'
+                    },
                 },
             },
             {
@@ -39,10 +40,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://zos.alipayobjects.com/rmsportal/faKjZtrmIbwJvVR.svg',
+                        children: '/static/react.png',
                     },
-                    content: { children: 'Ant Motion' },
+                    content: { children: 'React' },
                 },
             },
             {
@@ -53,10 +53,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg',
+                        children: '/static/redux.png',
                     },
-                    content: { children: 'Ant Design' },
+                    content: { children: 'Redux' },
                 },
             },
             {
@@ -67,10 +66,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://zos.alipayobjects.com/rmsportal/faKjZtrmIbwJvVR.svg',
+                        children: '/static/next.png',
                     },
-                    content: { children: 'Ant Motion' },
+                    content: { children: 'next' },
                 },
             },
             {
@@ -81,10 +79,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg',
+                        children: '/static/egg.png',
                     },
-                    content: { children: 'Ant Design' },
+                    content: { children: 'Eggjs' },
                 },
             },
             {
@@ -95,10 +92,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://zos.alipayobjects.com/rmsportal/faKjZtrmIbwJvVR.svg',
+                        children: '/static/vue.png',
                     },
-                    content: { children: 'Ant Motion' },
+                    content: { children: 'Vue' },
                 },
             },
             {
@@ -109,10 +105,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg',
+                        children: '/static/apollo.png',
                     },
-                    content: { children: 'Ant Design' },
+                    content: { children: 'Apollo' },
                 },
             },
             {
@@ -123,10 +118,9 @@ export const TechniqueDataSource = {
                 children: {
                     wrapper: { className: 'content5-block-content' },
                     img: {
-                        children:
-                            'https://zos.alipayobjects.com/rmsportal/faKjZtrmIbwJvVR.svg',
+                        children: '/static/graphql.png',
                     },
-                    content: { children: 'Ant Motion' },
+                    content: { children: 'Graphql' },
                 },
             },
         ],

@@ -32,26 +32,26 @@ class Technique extends React.PureComponent {
           <div key="title" {...dataSource.titleWrapper}>
             {dataSource.titleWrapper.children.map(getChildrenToRender)}
           </div>
-          <OverPack
-            className={`content-template ${props.className}`}
-            {...dataSource.OverPack}
-          >
-            <TweenOneGroup
-              component={Row}
-              key="ul"
-              enter={{
-                y: '+=30',
-                opacity: 0,
-                type: 'from',
-                ease: 'easeInOutQuad',
-              }}
-              leave={{ y: '+=30', opacity: 0, ease: 'easeInOutQuad' }}
-              {...dataSource.block}
-            >
-              {childrenToRender}
-            </TweenOneGroup>
-          </OverPack>
         </div>
+        <OverPack
+          className={`content-template ${props.className}`}
+          {...dataSource.overPack}
+        >
+          <TweenOneGroup
+            component={Row}
+            key="ul"
+            enter={{
+              y: '+=30',
+              opacity: 0,
+              type: 'from',
+              ease: 'easeInOutQuad',
+            }}
+            leave={{ y: '+=30', opacity: 0, ease: 'easeInOutQuad' }}
+            {...dataSource.block}
+          >
+            {childrenToRender}
+          </TweenOneGroup>
+        </OverPack>
       </div>
     );
   }

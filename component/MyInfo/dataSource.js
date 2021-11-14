@@ -10,14 +10,24 @@ import { Tag, Typography, Popover } from 'antd'
 import { UserOutlined, WechatOutlined, QqOutlined, QrcodeOutlined, ManOutlined, TagsOutlined, HomeOutlined } from '@ant-design/icons'
 const { Paragraph } = Typography;
 export const MyInfoDataSource = {
-    wrapper: { className: 'home-page-wrapper content1-wrapper' },
-    OverPack: { className: 'home-page content1', playScale: 0.3 },
+    wrapper: { className: 'home-page-wrapper content1' },
+    title: {
+        className: 'home-page content1-title',
+        children: [
+            { name: 'title', children: '关于我', className: 'content1-title-h1' },
+            {
+                name: 'content',
+                className: 'content1-title-text',
+                children: 'GUAN YU WO',
+            },
+        ],
+    },
+    overPack: { className: 'content1-overPack', playScale: 0.3 },
+    textWrapper: { className: 'content1-text', md: 14, xs: 24 },
     imgWrapper: { className: 'content1-img', md: 10, xs: 24 },
     img: {
         children: '/static/user-logo.png',
     },
-    textWrapper: { className: 'content1-text', md: 14, xs: 24 },
-    title: { className: 'content1-title', children: '关于我' },
     content: {
         className: 'content1-content',
         children: [

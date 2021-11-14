@@ -36,7 +36,10 @@ function Company(props) {
   };
   return (
     <div {...tagProps} {...dataSource.wrapper}>
-      <OverPack {...dataSource.OverPack} component={Row}>
+      <div key="title" className={dataSource.title.className}>
+        {dataSource?.title.children?.map(val => <div key={val.name} className={val?.className}>{val?.children}</div>)}
+      </div>
+      <OverPack {...dataSource.overPack} component={Row}>
         <TweenOne
           key="img"
           animation={animType.one}
@@ -48,9 +51,7 @@ function Company(props) {
             xs: dataSource.imgWrapper.xs,
           }}
         >
-          <span {...dataSource.img}>
-            <img src={dataSource.img.children} width="100%" alt="img" />
-          </span>
+          <img src={dataSource.img.children} alt="img" />
         </TweenOne>
         <QueueAnim
           key="text"
@@ -64,9 +65,7 @@ function Company(props) {
             xs: dataSource.textWrapper.xs,
           }}
         >
-          <h2 key="h1" {...dataSource.title}>
-            {dataSource.title.children}
-          </h2>
+
           <div key="p" {...dataSource.content}>
             {dataSource.content?.children?.map((val, index) => {
               return <div key={index} className={'content1-content-info'}>
