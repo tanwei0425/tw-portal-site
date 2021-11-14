@@ -18,7 +18,7 @@ export const BannerDataSource = {
                 bg: { className: 'bg bg0 kgdvi38pkfn-editor_css' },
                 title: {
                     className: 'banner1-title',
-                    children: '/static/indexLogo.png',
+                    children: '/static/index-logo.png',
                 },
                 content: {
                     className: 'banner1-content',
@@ -41,7 +41,7 @@ export const BannerDataSource = {
                 bg: { className: 'bg bg1 kgdv7d97l7t-editor_css' },
                 title: {
                     className: 'banner1-title',
-                    children: '/static/indexLogo.png',
+                    children: '/static/index-logo.png',
                 },
                 content: {
                     className: 'banner1-content',

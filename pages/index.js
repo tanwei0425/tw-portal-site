@@ -12,12 +12,12 @@ import React from 'react';
 import { enquireScreen } from 'enquire-js';
 import Layout from '@/layout'
 import Banner from '@/component/Banner';
-import Company from '@/component/Company';
+import MyInfo from '@/component/MyInfo';
 import Project from '@/component/Project';
 import Technique from '@/component/Technique';
 import AnchorPoint from '@/component/AnchorPoint';
 import { BannerDataSource } from '@/component/Banner/dataSource'
-import { CompanyDataSource } from '@/component/Company/dataSource'
+import { MyInfoDataSource } from '@/component/MyInfo/dataSource'
 import { ProjectDataSource } from '@/component/Project/dataSource'
 import { TechniqueDataSource } from '@/component/Technique/dataSource'
 export default class Home extends React.Component {
@@ -46,7 +46,7 @@ export default class Home extends React.Component {
       || window.pageYOffset
       || (event.srcElement ? event.srcElement.body.scrollTop : 0);
     this.setState({
-      hideHeader: scrollTop <= 30
+      hideHeader: scrollTop <= 80
     })
   }
 
@@ -59,10 +59,10 @@ export default class Home extends React.Component {
         dataSource={BannerDataSource}
         isMobile={isMobile}
       />,
-      <Company
-        id="company"
-        key="company"
-        dataSource={CompanyDataSource}
+      <MyInfo
+        id="myInfo"
+        key="myInfo"
+        dataSource={MyInfoDataSource}
         isMobile={isMobile}
       />,
       <Technique

@@ -9,6 +9,7 @@
 import React from 'react';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
+
 import { Row, Col } from 'antd';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 
@@ -67,7 +68,12 @@ function Company(props) {
             {dataSource.title.children}
           </h2>
           <div key="p" {...dataSource.content}>
-            {dataSource.content.children}
+            {dataSource.content?.children?.map((val, index) => {
+              return <div key={index} className={'content1-content-info'}>
+                {val.icon}
+                {val?.text}
+              </div>
+            })}
           </div>
         </QueueAnim>
       </OverPack>

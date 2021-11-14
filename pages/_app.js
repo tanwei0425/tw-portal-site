@@ -8,8 +8,18 @@
  */
 import '@/styles/globals.less'
 import '@/styles/common.less'
+import { ConfigProvider } from "antd";
+import zhCN from 'antd/lib/locale/zh_CN';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('en');
+
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <ConfigProvider
+    locale={zhCN}
+  >
+    <Component {...pageProps} />
+  </ConfigProvider>
 }
 
 export default MyApp

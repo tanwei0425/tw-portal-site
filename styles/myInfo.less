@@ -14,13 +14,15 @@
       display         : flex;
       align-items     : center;
       justify-content : center;
-
       span {
         display: block;
         width  : 250px;
 
         img {
           display: block;
+          width: 80%;
+          margin: auto;
+          border-radius: 50%;
         }
       }
     }
@@ -38,11 +40,22 @@
         font-size  : 32px;
         font-weight: normal;
         color      : #404040;
-        margin-top : 120px;
+        margin-top : 40px;
       }
 
-      .content {
-        margin-top: 20px;
+      .@{content1}-content-info {
+        margin-top: 10px;
+        &-icon{
+          font-size: 20px;
+          margin-right: 10px;
+        }
+        &-text{
+          font-size: 20px;
+          &-name{
+            margin-right: 10px;
+            font-size: 16px;
+          }
+        }
       }
     }
   }
@@ -50,27 +63,26 @@
 
 @media screen and (max-width: 767px) {
   .@{content1}-wrapper {
-    height: 600px;
+    height: 650px;
 
     .@{content1} {
       &-img {
-        height    : 200px;
+        height    : 160px;
         padding   : 0;
         text-align: center;
-        margin-top: 42px;
+        margin-top: 15px;
 
         span {
           display    : inline-block;
           width      : 180px;
-          height     : 200px;
-          line-height: 200px;
+          height     : 160px;
+          line-height: 160px;
           margin     : auto;
         }
       }
 
       &-text {
         height       : auto;
-        margin-bottom: 20px;
         text-align   : center;
         padding      : 0;
 
@@ -81,7 +93,7 @@
         }
 
         .@{content1}-title {
-          margin   : 32px auto 16px;
+          margin   : 16px auto;
           font-size: 24px;
         }
       }

@@ -22,8 +22,7 @@ export const FooterDataSource = {
                     className: 'logo',
                     isImg: true,
                     children:
-                        '/static/indexLogo.png',
-                    // 'https://zos.alipayobjects.com/rmsportal/qqaimmXZVSwAhpL.svg',
+                        '/static/index-logo.png',
                 },
                 childWrapper: {
                     className: 'slogan',
