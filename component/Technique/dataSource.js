@@ -1,7 +1,7 @@
 export const TechniqueDataSource = {
     wrapper: { className: 'home-page-wrapper content5-wrapper' },
     page: { className: 'home-page content5' },
-    overPack: { playScale: 0.3, className: '' },
+    overPack: { playScale: 0.3, className: 'content5-overPack' },
     titleWrapper: {
         className: 'content5-title',
         children: [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Button, message } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { getChildrenToRender } from '@/utils';
@@ -51,7 +51,9 @@ class Technique extends React.PureComponent {
           >
             {childrenToRender}
           </TweenOneGroup>
+          <Button size='large' onClick={() => message.error('功能待开发')}>查看所有技术栈</Button>
         </OverPack>
+
       </div>
     );
   }
