@@ -1,10 +1,17 @@
 import React from 'react';
-import { Row, Col, Button, message } from 'antd';
+import { Row, Col, Button, message, Modal } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { getChildrenToRender } from '@/utils';
+import AllTechnique from './allTechnique';
 
 class Technique extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isModalVisible: false
+    }
+  }
   getChildrenToRender = (data) =>
     data.map((item) => {
       return (
@@ -18,8 +25,22 @@ class Technique extends React.PureComponent {
         </Col>
       );
     });
+
+  showModal = () => {
+    this.setState({
+      isModalVisible: true
+    })
+  };
+
+  handleCancel = () => {
+    this.setState({
+      isModalVisible: false
+    })
+  };
+
   render() {
     const { ...props } = this.props;
+    const { isModalVisible } = this.state;
     const { dataSource } = props;
     delete props.dataSource;
     delete props.isMobile;
@@ -51,9 +72,20 @@ class Technique extends React.PureComponent {
           >
             {childrenToRender}
           </TweenOneGroup>
-          <Button size='large' className={'allTechniqueBut'} onClick={() => message.error('功能待开发')}>查看我的全部技术栈</Button>
+          <Button size='large' className={'allTechniqueBut'} onClick={this.showModal}>查看我的全部技术栈</Button>
+          <Modal
+            title={null}
+            footer={null}
+            centered={true}
+            maskClosable={false}
+            keyboard={false}
+            visible={isModalVisible}
+            onCancel={this.handleCancel}
+            width={'90vw'}
+          >
+            <AllTechnique />
+          </Modal>
         </OverPack>
-
       </div>
     );
   }
