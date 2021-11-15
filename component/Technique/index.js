@@ -51,7 +51,7 @@ class Technique extends React.PureComponent {
           >
             {childrenToRender}
           </TweenOneGroup>
-          <Button size='large' className={'allTechniqueBut'} onClick={() => message.error('功能待开发')}>查看所有技术栈</Button>
+          <Button size='large' className={'allTechniqueBut'} onClick={() => message.error('功能待开发')}>查看我的全部技术栈</Button>
         </OverPack>
 
       </div>

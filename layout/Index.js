@@ -7,6 +7,7 @@
  * @FilePath: /jianli/web-index/component/Layout/index.js
  */
 import React, { Component } from "react";
+import { BackTop } from 'antd'
 import { enquireScreen } from 'enquire-js';
 import Router from 'next/router'
 import Header from './Header'
@@ -49,6 +50,7 @@ class Layout extends Component {
                 <Header title={title} fixed={fixed} hideHeader={hideHeader} isMobile={isMobile} />
                 {children}
                 {isFooter && <Footer isMobile={isMobile} />}
+                <BackTop />
             </>
         );
     }

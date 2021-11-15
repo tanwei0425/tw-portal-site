@@ -20,7 +20,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block0',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -35,7 +37,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block1',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -48,7 +52,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block2',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -61,7 +67,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block3',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -74,7 +82,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block4',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -87,7 +97,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block5',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -100,7 +112,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block6',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },
@@ -113,7 +127,9 @@ export const TechniqueDataSource = {
             {
                 name: 'block7',
                 className: 'block',
-                md: 6,
+                lg: 6,
+                md: 8,
+                sm: 12,
                 xs: 24,
                 children: {
                     wrapper: { className: 'content5-block-content' },

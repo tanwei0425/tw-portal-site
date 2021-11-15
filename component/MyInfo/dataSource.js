@@ -56,14 +56,13 @@ export const MyInfoDataSource = {
             {
                 icon: <HomeOutlined className='content1-content-info-icon' />,
                 text: <span className={'content1-content-info-text-name'}>
-                    坐标长春/籍贯山东/拥有一个漂亮女人事（财务）和一个待出生的小宝宝
+                    坐标长春/籍贯山东/拥有一个漂亮小会计和一个待出生的小宝宝
                 </span>,
             },
             {
                 icon: <WechatOutlined className='content1-content-info-icon' />,
                 text: <span className={'content1-content-info-text-name'}>
                     <Paragraph style={{ display: 'inline-block', marginBottom: 0 }} copyable={{ text: 'lqw1kb' }}>lqw1kb</Paragraph>
-
                     <Popover content={<img style={{ width: 240, height: 240 }} src='/static/wechat.jpg' />} title={false} trigger="click">
                         <QrcodeOutlined style={{ color: '#13c2c2', cursor: 'pointer', marginLeft: 8, fontSize: 17 }} />
                     </Popover>
