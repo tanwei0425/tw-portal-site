@@ -74,6 +74,7 @@ class Technique extends React.PureComponent {
           </TweenOneGroup>
           <Button size='large' className={'allTechniqueBut'} onClick={this.showModal}>查看我的全部技术栈</Button>
           <Modal
+            wrapClassName={'allTechniqueModal'}
             title={null}
             footer={null}
             centered={true}
@@ -82,8 +83,9 @@ class Technique extends React.PureComponent {
             visible={isModalVisible}
             onCancel={this.handleCancel}
             width={'90vw'}
+            destroyOnClose={true}
           >
-            <AllTechnique />
+            {isModalVisible && <AllTechnique />}
           </Modal>
         </OverPack>
       </div>

@@ -1,20 +1,23 @@
 import React, { useEffect, useRef } from 'react';
 import G6 from '@antv/g6';
 import data from './data'
-
+import { Cascader } from 'antd'
 
 const AllTechnique = props => {
     const ref = useRef(null)
+    const container = ref.current;
+    const width = container?.scrollWidth;
+    const height = container?.scrollHeight;
     let graph = null
-
+    // 注册节点
     const initRegisterNode = () => G6.registerNode(
         'tree-node',
         {
             drawShape: function drawShape(cfg, group) {
                 const rect = group.addShape('rect', {
                     attrs: {
-                        fill: '#fff',
-                        stroke: '#666',
+                        fill: '#5cdbd3',
+                        stroke: '#87e8de',
                         x: 0,
                         y: 0,
                         width: 1,
@@ -30,7 +33,7 @@ const AllTechnique = props => {
                         y: 0,
                         textAlign: 'left',
                         textBaseline: 'middle',
-                        fill: '#666',
+                        fill: '#fff',
                     },
                     name: 'text-shape',
                 });
@@ -53,7 +56,7 @@ const AllTechnique = props => {
                             y: 0,
                             r: 6,
                             symbol: cfg.collapsed ? G6.Marker.expand : G6.Marker.collapse,
-                            stroke: '#666',
+                            stroke: '#fff',
                             lineWidth: 2,
                         },
                         name: 'collapse-icon',
@@ -69,6 +72,8 @@ const AllTechnique = props => {
         },
         'single-node',
     );
+
+    // TreeGraph画布
     const initTreeGraph = (props) => {
         const graph = new G6.TreeGraph({
             container: ref.current,
@@ -126,30 +131,55 @@ const AllTechnique = props => {
         return graph
     }
 
-    useEffect(() => {
-        const container = ref.current;
-        const width = container?.scrollWidth;
-        const height = container?.scrollHeight || 500;
-        if (!graph) {
-            initRegisterNode()
-            graph = initTreeGraph({ width, height })
-        }
-        graph.data(data);
+    // 渲染
+    const renderGraph = (graphData) => {
+        graph.data(graphData || []);
         graph.render();
         graph.fitView();
-        if (typeof window !== 'undefined') {
-            window.onresize = () => {
-                if (!graph || graph.get('destroyed')) return;
-                if (!container || !container.scrollWidth || !container.scrollHeight) return;
-                graph.changeSize(container.scrollWidth, container.scrollHeight);
-            };
+    }
+
+    useEffect(() => {
+        console.log(11111);
+
+        if (!graph) {
+            initRegisterNode()
+            const minimap = new G6.Minimap({
+                size: [120, 120]
+            });
+            graph = initTreeGraph({ width, height, plugins: [minimap] })
+        }
+        renderGraph(data)
+
+        return () => {
+            console.log(122222);
+            graph.destroy();
         }
     }, [])
 
-
+    const onChange = (value, selectedOptions) => {
+        const graphData = selectedOptions?.length > 0 ? selectedOptions[selectedOptions.length - 1] : data;
+        renderGraph(graphData)
+    }
+    if (typeof window !== 'undefined') {
+        window.onresize = () => {
+            if (!graph || graph.get('destroyed')) return;
+            if (!container || !container.scrollWidth || !container.scrollHeight) return;
+            graph.changeSize(container.scrollWidth, container.scrollHeight);
+        };
+    }
     return (
-        <div ref={ref}></div>
-    );
+        <div style={{ paddingTop: 22, width: '100%', height: '100%' }}>
+            <Cascader
+                options={data?.children || []}
+                style={{ width: '100%' }}
+                onChange={onChange}
+                fieldNames={{ label: 'name', value: 'name' }}
+                placeholder="筛选你想看的技术栈"
+                changeOnSelect={true}
+            />
+            <div style={{ width: '95%', height: '95%', marginTop: 20 }} ref={ref} ></div>
+        </div>
+    )
 }
 
 

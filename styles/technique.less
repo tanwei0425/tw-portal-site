@@ -59,12 +59,33 @@
   .allTechniqueBut{
     margin: 15px auto;
   }
+  
 }
+
+// 全部技术栈功能弹出层样式覆盖
+.allTechniqueModal{
+  .ant-modal-body{
+    height: 95vh;
+    .g6-minimap {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      background-color: #fff;
+      .g6-minimap-viewport{
+        top: 3px!important;
+        left: 3px!important;
+        width: 115px!important;
+      }
+    }
+  }
+}
+
+
 
 @media screen and (max-width: 767px) {
   .@{content5}-wrapper {
     overflow: hidden;
-    .@{content5} {
-    }
+    // .@{content5} {
+    // }
   }
 }
