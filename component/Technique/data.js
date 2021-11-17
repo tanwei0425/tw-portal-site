@@ -1,10 +1,8 @@
 const data = {
-    "id": "0",
     "name": "技术栈",
     "children": [
         {
             "name": "前端",
-            "id": "1",
             "children": [
                 {
                     "name": "JavaScript",
@@ -214,10 +212,8 @@ const data = {
         },
         {
             "name": "后端",
-            "id": "2",
             "children": [
                 {
-                    "id": "2-1",
                     "name": "接口风格",
                     "children": [
                         {
@@ -249,7 +245,6 @@ const data = {
                     ]
                 },
                 {
-                    "id": "2-2",
                     "name": "协议",
                     "children": [
                         {
@@ -261,7 +256,6 @@ const data = {
                     ]
                 },
                 {
-                    "id": "2-3",
                     "name": "数据库",
                     "children": [
                         {
@@ -279,7 +273,6 @@ const data = {
                     ]
                 },
                 {
-                    "id": "2-4",
                     "name": "鉴权",
                     "children": [
                         {
@@ -294,7 +287,6 @@ const data = {
                     ]
                 },
                 {
-                    "id": "2-5",
                     "name": "Node.js",
                     "children": [
                         {
@@ -328,18 +320,14 @@ const data = {
         },
         {
             "name": "运维",
-            "id": "3",
             "children": [
                 {
-                    "id": "3-1",
                     "name": "Linux"
                 },
                 {
-                    "id": "3-2",
                     "name": "Nginx"
                 },
                 {
-                    "id": "3-3",
                     "name": "Docker"
                 },
             ]

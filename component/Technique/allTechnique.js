@@ -110,7 +110,7 @@ const AllTechnique = props => {
             },
             layout: {
                 type: 'compactBox',
-                direction: 'LR',
+                direction: 'H',
                 getId: function getId(d) {
                     return d.id;
                 },
@@ -132,15 +132,13 @@ const AllTechnique = props => {
     }
 
     // 渲染
-    const renderGraph = (graphData) => {
-        graph.data(graphData || []);
+    const renderGraph = (graphData = {}) => {
+        graph.data(graphData);
         graph.render();
         graph.fitView();
     }
 
     useEffect(() => {
-        console.log(11111);
-
         if (!graph) {
             initRegisterNode()
             const minimap = new G6.Minimap({
@@ -149,9 +147,7 @@ const AllTechnique = props => {
             graph = initTreeGraph({ width, height, plugins: [minimap] })
         }
         renderGraph(data)
-
         return () => {
-            console.log(122222);
             graph.destroy();
         }
     }, [])
