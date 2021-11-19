@@ -7,7 +7,7 @@
  * @FilePath: /web-index/component/Company/dataSource.js
  */
 import { Tag, Typography, Popover } from 'antd'
-import { UserOutlined, WechatOutlined, QqOutlined, QrcodeOutlined, ManOutlined, TagsOutlined, HomeOutlined } from '@ant-design/icons'
+import { UserOutlined, WechatOutlined, GithubOutlined, QqOutlined, QrcodeOutlined, ManOutlined, TagsOutlined, HomeOutlined } from '@ant-design/icons'
 const { Paragraph } = Typography;
 export const MyInfoDataSource = {
     wrapper: { className: 'home-page-wrapper content1' },
@@ -44,7 +44,7 @@ export const MyInfoDataSource = {
                     <Tag color="#f50">94年程序员</Tag>
                     <Tag color="#2db7f5">双子座</Tag>
                     <Tag color="#87d068">178CM</Tag>
-                    <Tag color="#108ee9">这不是胖，是壮</Tag>
+                    <Tag color="#108ee9">我这是壮好吧！</Tag>
                 </span>,
             },
             {
@@ -74,7 +74,12 @@ export const MyInfoDataSource = {
                     <Paragraph style={{ display: 'inline-block', marginBottom: 0 }} copyable={{ text: '395128711' }}>395128711</Paragraph>
                 </span>,
             },
+            {
+                icon: <GithubOutlined className='content1-content-info-icon' />,
+                text: <span className={'content1-content-info-text-name'}>
+                    <a href="https://github.com/tanwei0425" target="_blank">https://github.com/tanwei0425</a>
+                </span>,
+            },
         ]
-        // '5年前端工作经验，2年前端架构经验，对项目、人员管理有一定经验，熟悉DevOps转型工作，对可持续交付、TDD、 敏捷开发有一定了解。',
     },
 };

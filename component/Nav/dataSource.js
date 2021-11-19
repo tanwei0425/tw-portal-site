@@ -12,123 +12,71 @@ export const NavDataSource = {
                 },
             },
             {
-                name: 'applets',
+                name: '/notes',
                 className: 'header0-item',
                 children: {
-                    children: [{ children: '小程序', name: 'text' }],
+                    children: [{ children: '随记', name: 'text' }],
                 },
-                subItem: [
-                    {
-                        name: '/wxApplets',
-                        className: 'item-sub',
-                        children: {
-                            className: 'item-sub-item',
-                            children: [
-                                {
-                                    name: 'image0',
-                                    className: 'item-image',
-                                    children:
-                                        'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                                },
-                                {
-                                    name: 'title',
-                                    className: 'item-title',
-                                    children: '微信小程序',
-                                },
-                                {
-                                    name: 'content',
-                                    className: 'item-content',
-                                    children: '微信小程序文档描述',
-                                },
-                            ],
-                        },
-                    },
-                    {
-                        name: '/aliApplets',
-                        className: 'item-sub',
-                        children: {
-                            className: 'item-sub-item',
-                            children: [
-                                {
-                                    name: 'image0',
-                                    className: 'item-image',
-                                    children:
-                                        'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                                },
-                                {
-                                    name: 'title',
-                                    className: 'item-title',
-                                    children: '支付宝小程序',
-                                },
-                                {
-                                    name: 'content',
-                                    className: 'item-content',
-                                    children: '支付宝小程序文档描述',
-                                },
-                            ],
-                        },
-                    },
-                ],
             },
-            {
-                name: 'app',
-                className: 'header0-item',
-                children: {
-                    children: [{ children: '移动端', name: 'text' }],
-                },
-                subItem: [
-                    {
-                        name: '/ios',
-                        className: 'item-sub',
-                        children: {
-                            className: 'item-sub-item',
-                            children: [
-                                {
-                                    name: 'image0',
-                                    className: 'item-image',
-                                    children:
-                                        'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                                },
-                                {
-                                    name: 'title',
-                                    className: 'item-title',
-                                    children: 'IOS',
-                                },
-                                {
-                                    name: 'content',
-                                    className: 'item-content',
-                                    children: 'IOS文档描述',
-                                },
-                            ],
-                        },
-                    },
-                    {
-                        name: '/android',
-                        className: 'item-sub',
-                        children: {
-                            className: 'item-sub-item',
-                            children: [
-                                {
-                                    name: 'image0',
-                                    className: 'item-image',
-                                    children:
-                                        'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                                },
-                                {
-                                    name: 'title',
-                                    className: 'item-title',
-                                    children: 'android',
-                                },
-                                {
-                                    name: 'content',
-                                    className: 'item-content',
-                                    children: 'android文档描述',
-                                },
-                            ],
-                        },
-                    },
-                ],
-            },
+            // {
+            //     name: 'applets',
+            //     className: 'header0-item',
+            //     children: {
+            //         children: [{ children: '小程序', name: 'text' }],
+            //     },
+            //     subItem: [
+            //         {
+            //             name: '/wxApplets',
+            //             className: 'item-sub',
+            //             children: {
+            //                 className: 'item-sub-item',
+            //                 children: [
+            //                     {
+            //                         name: 'image0',
+            //                         className: 'item-image',
+            //                         children:
+            //                             'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
+            //                     },
+            //                     {
+            //                         name: 'title',
+            //                         className: 'item-title',
+            //                         children: '微信小程序',
+            //                     },
+            //                     {
+            //                         name: 'content',
+            //                         className: 'item-content',
+            //                         children: '微信小程序文档描述',
+            //                     },
+            //                 ],
+            //             },
+            //         },
+            //         {
+            //             name: '/aliApplets',
+            //             className: 'item-sub',
+            //             children: {
+            //                 className: 'item-sub-item',
+            //                 children: [
+            //                     {
+            //                         name: 'image0',
+            //                         className: 'item-image',
+            //                         children:
+            //                             'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
+            //                     },
+            //                     {
+            //                         name: 'title',
+            //                         className: 'item-title',
+            //                         children: '支付宝小程序',
+            //                     },
+            //                     {
+            //                         name: 'content',
+            //                         className: 'item-content',
+            //                         children: '支付宝小程序文档描述',
+            //                     },
+            //                 ],
+            //             },
+            //         },
+            //     ],
+            // },
             {
                 name: 'component',
                 className: 'header0-item',

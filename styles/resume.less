@@ -1,10 +1,12 @@
 @resume: resume;
 
 .@{resume} {
+  padding-bottom: 0;
   &-wrapper {
     margin          : 0 auto;
     overflow        : hidden;
     background-color: #fff;
+    padding-bottom: 0!important;
   }
   
   &-title {
@@ -27,6 +29,18 @@
   &-block-wrapper{
     justify-content: center;
     margin-top: 10px;
+    .ant-timeline.ant-timeline-label .ant-timeline-item-right .ant-timeline-item-label{
+      left: calc(50% + 30px)!important;
+    }
+    .ant-timeline.ant-timeline-label .ant-timeline-item-left .ant-timeline-item-content{
+      left: calc(50% + 6px)!important;
+    }
+    .ant-timeline.ant-timeline-label .ant-timeline-item-right .ant-timeline-item-content{
+      width: calc(50% - 35px)!important;
+    }
+    .ant-timeline.ant-timeline-label .ant-timeline-item-label{
+      width: calc(50% - 28px)!important;
+    }
   }
  
 }
