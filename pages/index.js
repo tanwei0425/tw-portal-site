@@ -15,11 +15,13 @@ import Banner from '@/component/Banner';
 import MyInfo from '@/component/MyInfo';
 import Project from '@/component/Project';
 import Technique from '@/component/Technique';
+import Resume from '@/component/Resume';
 import AnchorPoint from '@/component/AnchorPoint';
 import { BannerDataSource } from '@/component/Banner/dataSource'
 import { MyInfoDataSource } from '@/component/MyInfo/dataSource'
 import { ProjectDataSource } from '@/component/Project/dataSource'
 import { TechniqueDataSource } from '@/component/Technique/dataSource'
+import { ResumeDataSource } from '@/component/Resume/dataSource'
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -59,12 +61,7 @@ export default class Home extends React.Component {
         dataSource={BannerDataSource}
         isMobile={isMobile}
       />,
-      <MyInfo
-        id="myInfo"
-        key="myInfo"
-        dataSource={MyInfoDataSource}
-        isMobile={isMobile}
-      />,
+
       <Technique
         id="technique"
         key="technique"
@@ -77,14 +74,27 @@ export default class Home extends React.Component {
         dataSource={ProjectDataSource}
         isMobile={isMobile}
       />,
+      <Resume
+        id="resume"
+        key="resume"
+        dataSource={ResumeDataSource}
+        isMobile={isMobile}
+      />,
+      <MyInfo
+        id="myInfo"
+        key="myInfo"
+        dataSource={MyInfoDataSource}
+        isMobile={isMobile}
+      />,
       <AnchorPoint
         key="AnchorPoint"
         data={[
           // 'nav',
           'banner',
-          'company',
           'technique',
           'project',
+          'resume',
+          'myInfo',
           // 'footer',
         ]}
         size="point-large"

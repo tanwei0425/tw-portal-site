@@ -1,0 +1,82 @@
+@resume: resume;
+
+.@{resume} {
+  &-wrapper {
+    margin          : 0 auto;
+    overflow        : hidden;
+    background-color: #fff;
+  }
+  
+  &-title {
+
+    &-wrapper {
+      text-align   : center;
+      margin-bottom: 40px;
+    }
+
+    &-h1 {
+      font-size: 32px;
+      color    : @text-color;
+    }
+
+    &-content {
+      margin-top: 16px;
+    }
+  }
+
+  &-block-wrapper{
+    justify-content: center;
+    margin-top: 10px;
+  }
+ 
+}
+
+@homepage: home-page;
+
+.@{homepage}-wrapper {
+  width   : 100%;
+  padding: 24px;
+  .@{homepage} {
+    height     : 100%;
+    max-width  : 1200px;
+    position   : relative;
+    margin     : auto;
+    will-change: transform;
+  }
+
+  .title-wrapper>h1,
+  >h1 {
+    font-size    : 32px;
+    color        : @text-color;
+    margin-bottom: 16px;
+  }
+
+  .title-wrapper {
+    margin    : 0 auto 64px;
+    text-align: center;
+  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+  .@{homepage}-wrapper {
+    .@{homepage} {
+      padding: 40px 24px;
+
+      >h1 {
+        font-size: 24px;
+        margin   : 0 auto 32px;
+
+        &.title-h1 {
+          margin-bottom: 8px;
+        }
+      }
+
+      >p {
+        margin-bottom: 32px;
+      }
+    }
+  }
+}

@@ -19,11 +19,11 @@ export default class Header extends Component {
         return (
             <>
                 <Head>
-                    <title>{title} - 谭伟的个人前端</title>
+                    <title>{title} - T COLLECTION V1</title>
                     <meta charSet='utf-8' />
                     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-                    <meta name="keywords" content={`${title} - 谭伟的个人前端`} />
-                    <meta name="description" content={`${title} - 谭伟的个人前端`} />
+                    <meta name="keywords" content={`${title} - T COLLECTION V1`} />
+                    <meta name="description" content={`${title} - T COLLECTION V1`} />
                 </Head>
                 <Nav
                     id="nav"
