@@ -39,12 +39,12 @@ export const ResumeDataSource = {
             {
                 label: '2016-12（正式加入程序员大家庭）',
                 name: '在山东艾索微卓信息科技有限公司担任PHP开发（ThinkPHP3 DedeCMS Mysql/Html Css Js），参与山东师范大学网站、济南静脉曲张医院后台管理系统和济南某军工采购管理系统的开发，在此期间对前端产生浓厚的兴趣，开启了前端自学之路。',
-                dot: <FrownOutlined style={{ fontSize: size }} />,
-                color: "red",
+                dot: <SmileOutlined style={{ fontSize: size }} />,
+                color: "green",
             },
             {
                 label: '2017-06（入职中通天鸿（北京）通信科技股份有限公司）',
-                name: <span>后因家庭原因来到长春，入职中通天鸿（北京）通信科技股份有限公司，加入长春研发中心，担任前端开发工作，18年主要负责前端架构搭建，基于CRA脚手架，搭建企业脚手架（后期用于多个大型项目）， 封装各种通用组件。并带领小组成员基于Ant Design扩展出一套企业级项目组件库，附上（<a href="http://components.icsoc.net/" target="_blank">链接</a>），闲暇时间会给员工进行前端培训，并继续深入前端技术领域， 可以说17、18年是我的职业前端学习年！</span>,
+                name: <span>因家庭原因来到长春，入职中通天鸿（北京）通信科技股份有限公司，加入长春研发中心，担任前端开发工作，18年主要负责前端架构搭建，基于CRA脚手架，搭建企业脚手架（后期应用于多个大型项目）， 封装各种通用组件。并带领小组成员基于Ant Design扩展出一套企业级项目组件库，附上（<a href="http://components.icsoc.net/" target="_blank">链接</a>），闲暇时间会给员工进行前端培训，并继续深入前端技术领域， 可以说17、18年是我的职业前端学习年！</span>,
                 dot: <SmileOutlined style={{ fontSize: size }} />,
                 color: "green",
             },
@@ -56,7 +56,7 @@ export const ResumeDataSource = {
             },
             {
                 label: '2020-02（疫情席卷全国）',
-                name: '疫情蔓延， 国家推行健康码政策， 吉事办小程序由此诞生， 借助Taro强大个跨平台能力以及标准的ReactTs语法， 一套代码->架构了微信，支付宝，h5三端',
+                name: '疫情蔓延， 国家推行健康码政策， 吉事办小程序由此诞生， 借助Taro强大的跨平台能力以及标准的ReactTs语法， 一套代码->架构了微信，支付宝，h5三端',
                 dot: <SmileOutlined style={{ fontSize: size }} />,
                 color: "green",
             },
