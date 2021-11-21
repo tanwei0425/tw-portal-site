@@ -6,20 +6,22 @@
  * @LastEditTime: 2020-10-20 17:42:45
  * @FilePath: /jianli/web-index/pages/resume/index.js
  */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Table, Modal, Button, Row, Col, Spin, Form, Select, Input, message, } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import axios from 'axios'
-import Layout from '@/Layout'
+import Layout from '@/layout'
 import moment from 'moment';
 import './index.less'
 
 const { confirm } = Modal;
 const { Option } = Select;
 
+const url = 'http://localhost:7002'
+
 const getBabyList = async (params) => {
     const res = await axios({
-        url: 'http://localhost:7002/admin/v1/baby',
+        url: `${url}/admin/v1/baby`,
         params,
         method: 'get',
     })
@@ -27,7 +29,7 @@ const getBabyList = async (params) => {
 }
 const addBabyName = async (data) => {
     const res = await axios({
-        url: 'http://localhost:7002/admin/v1/baby',
+        url: `${url}/admin/v1/baby`,
         data,
         method: 'post',
     })
@@ -35,7 +37,7 @@ const addBabyName = async (data) => {
 }
 const deleteBabyName = async (id) => {
     const res = await axios({
-        url: `http://localhost:7002/admin/v1/baby/${id}`,
+        url: `${url}/admin/v1/baby/${id}`,
         method: 'delete',
     })
     return res

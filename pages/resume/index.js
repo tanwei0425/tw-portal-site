@@ -9,7 +9,7 @@
 import React, { useState, useEffect } from 'react'
 import { Spin } from 'antd'
 import Router from 'next/router'
-import Layout from '@/Layout'
+import Layout from '@/layout'
 const Index = () => {
     const [loading, setLoading] = useState(true)
     useEffect(() => {
