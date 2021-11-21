@@ -43,11 +43,12 @@ class Layout extends Component {
     }
     render() {
 
-        const { children, title, fixed, hideHeader, isFooter = true } = this.props;
+        const { children, title, fixed, hideHeader, isHeader = true, isFooter = true } = this.props;
         const { isMobile } = this.state;
+        console.log(isHeader, 'isHeader');
         return (
             <>
-                <Header title={title} fixed={fixed} hideHeader={hideHeader} isMobile={isMobile} />
+                {isHeader && <Header title={title} fixed={fixed} hideHeader={hideHeader} isMobile={isMobile} />}
                 {children}
                 {isFooter && <Footer isMobile={isMobile} />}
                 <BackTop />

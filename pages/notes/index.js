@@ -5,8 +5,9 @@ const Index = () => {
         <Layout title={'随机'} >
             <div
                 className="templates-wrapper"
+                style={{ fontSize: 60, height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
             >
-                随记
+                待开发
             </div>
         </Layout>
     )

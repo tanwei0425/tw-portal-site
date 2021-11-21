@@ -33,7 +33,7 @@ function Index({ dataSource, isMobile, ...tagProps }) {
             key="queue"
             type="bottom"
             leaveReverse
-            interval={50}
+            interval={60}
             component={Row}
             {...blockWrapper}
           >

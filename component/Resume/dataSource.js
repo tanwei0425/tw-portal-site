@@ -1,4 +1,4 @@
-import { ClockCircleOutlined, FrownOutlined, SmileOutlined } from '@ant-design/icons'
+import { FrownOutlined, SmileOutlined } from '@ant-design/icons'
 
 const size = 20
 export const ResumeDataSource = {

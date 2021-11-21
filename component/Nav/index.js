@@ -68,12 +68,11 @@ class Nav extends PureComponent {
                             let { children: tChildren, ...attr } = childItem
                             // 手机端不要描述
                             isMobile && (tChildren = childItem?.children.filter(val => val.name !== 'content'))
-                            const child = <div {...attr}>
-                                {tChildren.map(getChildrenToRender)}
-                            </div>
                             return (
                                 <Item key={$item.name || ii.toString()} {...$item}>
-                                    {child}
+                                    <a {...attr} >
+                                        {tChildren.map(getChildrenToRender)}
+                                    </a>
                                 </Item>
                             );
                         })}

@@ -15,7 +15,6 @@
     transition: @headerTransition;
   }
   .header0-title{
-    position: relative;
     left: 80px;
     transform: translateX(0);
   }
@@ -35,13 +34,14 @@
   height     : @headerHeight;
   .header-page{
     position: relative;
-    width: 90%;
-    margin:0 5%;
+    width: 94%;
+    margin-left: 3%;
+    margin-right: 3%;
   }
   &-logo {
     position   : absolute;
     left: 0;
-    width      : 100px;
+    width      : 80px;
     color: #fff;
     font-size: 24px;
     opacity: 0;
@@ -69,7 +69,15 @@
     position:absolute;
     right: 0;
     opacity: 0;
+    text-align: right;
     transition: @headerTransition;
+    .ant-menu-item .ant-menu-item-icon,
+    .ant-menu-submenu-title .ant-menu-item-icon, 
+    .ant-menu-item .anticon, 
+    .ant-menu-submenu-title .anticon{
+      transition: none;
+    }
+
     &-navMobile{
       background: @template-nav-bg-color;
       a {
@@ -77,6 +85,8 @@
       }
     }
     &-nav {
+      min-width:620px;
+      display: inline-block;
       line-height: @headerHeight!important;
       height     : @headerHeight!important;
       background: transparent!important;
@@ -88,8 +98,6 @@
 
   &-item {
     &-block {
-      padding: 0 8px;
-
       >* {
         display: inline-block;
       }
@@ -109,13 +117,12 @@
     .item {
       &-sub-item {
         display: block;
-        padding: 8px 24px;
+        padding: 8px 0;
       }
 
       &-image {
         float       : left;
-        margin-right: 16px;
-        margin-top  : 4px;
+        margin-right: 10px;
         position    : relative;
         z-index     : 1;
       }
