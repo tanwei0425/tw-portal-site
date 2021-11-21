@@ -191,12 +191,14 @@ const Index = () => {
                                 <Form
                                     form={form}
                                     layout='inline'
+                                    labelCol={{ span: 7 }}
+                                    wrapperCol={{ span: 17 }}
                                     name="form-baby-name-search"
                                 >
                                     <Form.Item
                                         name="addName"
                                         label="添加人员"
-                                        style={{ width: 220 }}
+                                        style={{ width: 220, margin: 8 }}
                                     >
                                         <Select
                                             showSearch
@@ -214,19 +216,14 @@ const Index = () => {
                                             <Option value="其他">其他</Option>
                                         </Select>
                                     </Form.Item>
-                                    <Form.Item>
-                                        <Button type='primary' onClick={searchTable}>查询</Button>
-                                    </Form.Item>
-                                    <Form.Item>
+                                    <Form.Item style={{ width: 220, margin: 8 }}>
+                                        <Button type='primary' style={{ marginRight: 8 }} onClick={searchTable}>查询</Button>
                                         <Button onClick={resetTable}>重置</Button>
                                     </Form.Item>
                                 </Form>
-
-
-
                             </Col>
                             <Col>
-                                <Button type='primary' onClick={() => changeModal(true)}>添加名称</Button>
+                                <Button type='primary' style={{ margin: 8 }} onClick={() => changeModal(true)}>添加名称</Button>
                             </Col>
                         </Row>
 
