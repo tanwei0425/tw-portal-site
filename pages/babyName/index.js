@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-10-20 17:42:45
  * @FilePath: /jianli/web-index/pages/resume/index.js
  */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Table, Modal, Button, Row, Col, Spin, Form, Select, Input, message, } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import axios from 'axios'
@@ -44,23 +44,22 @@ const deleteBabyName = async (id) => {
     })
     return res
 }
-export const getStaticProps = async () => {
-    const res = await getBabyList({
-        current: 1,
-        pageSize: 10,
-    })
-    const { data: { data } } = res
-    return {
-        props: {
-            data
-        }
-    }
-}
+// export const getStaticProps = async () => {
+//     const res = await getBabyList({
+//         current: 1,
+//         pageSize: 10,
+//     })
+//     return {
+//         props: {
+//             data: res.data.data
+//         }
+//     }
+// }
 
-const Index = ({ data }) => {
-    const [dataSource, setDataSource] = useState(data.list || []);
+const Index = () => {
+    const [dataSource, setDataSource] = useState([]);
     const [pageConfig, setPageConfig] = useState({
-        total: data.total || 0,
+        total: 0,
         current: 1,
         pageSize: 10,
     });
@@ -122,6 +121,12 @@ const Index = ({ data }) => {
         setLoaidng(false)
     }
 
+    useEffect(() => {
+        getTable({
+            current: 1,
+            pageSize: 10,
+        })
+    }, [])
     const onChange = (paginationConfig) => {
         const newPage = {
             current: paginationConfig?.current,
@@ -159,10 +164,7 @@ const Index = ({ data }) => {
         {
             title: '添加时间',
             dataIndex: 'createdAt',
-            render: (text) => {
-                console.log(text, 'text');
-                return moment(text).format('YYYY-MM-DD HH:mm:ss');
-            }
+            render: (text) => text && moment(text).format('YYYY-MM-DD HH:mm:ss'),
         },
         {
             title: '添加地点',
@@ -182,6 +184,7 @@ const Index = ({ data }) => {
         <Layout title={'宝宝名字'} isFooter={false}>
             <div className="babyName">
                 <Table
+                    className={{ width: '100%' }}
                     title={() =>
                         <Row justify='space-between' align='middle'>
                             <Col>
@@ -248,7 +251,7 @@ const Index = ({ data }) => {
                     title="叔叔们取得名字一定是最棒的"
                     visible={isModalVisible}
                     centered={true}
-                    loading={modalLoading}
+                    confirmLoading={modalLoading}
                     destroyOnClose={true}
                     onOk={handleOk}
                     onCancel={() => changeModal(false)}
