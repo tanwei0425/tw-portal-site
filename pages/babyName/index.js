@@ -23,7 +23,7 @@ const url = 'http://localhost:7002'
 
 const getBabyList = async (params) => {
     const res = await axios({
-        url: `${url}/admin/v1/baby`,
+        url: `${url}/web/v1/baby`,
         params,
         method: 'get',
     })
@@ -31,7 +31,7 @@ const getBabyList = async (params) => {
 }
 const addBabyName = async (data) => {
     const res = await axios({
-        url: `${url}/admin/v1/baby`,
+        url: `${url}/web/v1/baby`,
         data,
         method: 'post',
     })
@@ -39,22 +39,11 @@ const addBabyName = async (data) => {
 }
 const deleteBabyName = async (id) => {
     const res = await axios({
-        url: `${url}/admin/v1/baby/${id}`,
+        url: `${url}/web/v1/baby/${id}`,
         method: 'delete',
     })
     return res
 }
-// export const getStaticProps = async () => {
-//     const res = await getBabyList({
-//         current: 1,
-//         pageSize: 10,
-//     })
-//     return {
-//         props: {
-//             data: res.data.data
-//         }
-//     }
-// }
 
 const Index = () => {
     const [dataSource, setDataSource] = useState([]);
