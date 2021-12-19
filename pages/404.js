@@ -9,11 +9,11 @@
  */
 import Router from 'next/router'
 import { Result, Button } from 'antd';
-import Layout from '@/layout'
+import Layouts from '@/layouts'
 
 export default function Home() {
     return (
-        <Layout title={'404'}>
+        <Layouts title={'404'}>
             <div style={{ marginTop: 48 }}>
                 <Result
                     status="404"
@@ -22,6 +22,6 @@ export default function Home() {
                     extra={<Button onClick={() => Router.push('/')} type="primary">返回首页</Button>}
                 />
             </div>
-        </Layout>
+        </Layouts>
     )
 }

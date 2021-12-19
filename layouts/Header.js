@@ -12,24 +12,24 @@ import Nav from '@/component/Nav';
 import {
     NavDataSource,
 } from '@/component/Nav/dataSource.js';
-
+import config from '@/config'
 export default class Header extends Component {
     render() {
-        const { isMobile, hideHeader, title, fixed } = this.props
+        const { isMobile, autoHideHeader, title, fixedHeader } = this.props
         return (
             <>
                 <Head>
-                    <title>{title} - T COLLECTION V1</title>
+                    <title>{title} - {config?.title}</title>
                     <meta charSet='utf-8' />
                     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-                    <meta name="keywords" content={`${title} - T COLLECTION V1`} />
-                    <meta name="description" content={`${title} - T COLLECTION V1`} />
+                    <meta name="keywords" content={`${title} - ${config?.title}`} />
+                    <meta name="description" content={`${title} - ${config?.title}`} />
                 </Head>
                 <Nav
                     id="nav"
                     key="nav"
-                    fixed={fixed}
-                    hideHeader={hideHeader}
+                    fixedHeader={fixedHeader}
+                    autoHideHeader={autoHideHeader}
                     dataSource={NavDataSource}
                     isMobile={isMobile}
                 />

@@ -42,12 +42,12 @@ class Layout extends Component {
         });
     }
     render() {
-
-        const { children, title, fixed, hideHeader, isHeader = true, isFooter = true } = this.props;
+        // fixedHeader 是否固定header
+        const { children, title, fixedHeader, autoHideHeader, isHeader = true, isFooter = true } = this.props;
         const { isMobile } = this.state;
         return (
             <>
-                {isHeader && <Header title={title} fixed={fixed} hideHeader={hideHeader} isMobile={isMobile} />}
+                {isHeader && <Header title={title} fixedHeader={fixedHeader} autoHideHeader={autoHideHeader} isMobile={isMobile} />}
                 {children}
                 {isFooter && <Footer isMobile={isMobile} />}
                 <BackTop />

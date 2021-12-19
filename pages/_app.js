@@ -13,8 +13,8 @@ import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('en');
-
 function MyApp({ Component, pageProps }) {
+
   return <ConfigProvider
     locale={zhCN}
   >

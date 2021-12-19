@@ -5,16 +5,17 @@ import { Menu } from 'antd';
 import classnames from 'classnames'
 import { getChildrenToRender } from '@/utils';
 import { ColorChangeLogo } from '@/component/Logo'
-
+import config from '@/config'
 const { Item, SubMenu } = Menu;
 
 class Nav extends PureComponent {
     constructor(props) {
         super(props);
+        this.linkTypeMenu = []
         this.state = {
             phoneOpen: undefined,
             current: undefined,
-            headerStatus: true
+            headerStatus: true,
         };
     }
 
@@ -43,7 +44,7 @@ class Nav extends PureComponent {
     }
 
     render() {
-        const { dataSource, isMobile, hideHeader: hideHeaderProps, fixed, ...props } = this.props;
+        const { dataSource, isMobile, autoHideHeader, fixedHeader, ...props } = this.props;
         const { phoneOpen, current, headerStatus } = this.state;
         const navData = dataSource.Menu.children;
         const navChildren = navData.map((item) => {
@@ -91,8 +92,8 @@ class Nav extends PureComponent {
 
         const headerNavClass = classnames(
             'header0 header-page-wrapper kgdvgox2cx-editor_css',
-            fixed && !isMobile && 'header0Fixed',
-            (!headerStatus || !hideHeaderProps) && !isMobile && 'header0FixedHover',
+            fixedHeader && !isMobile && 'header0Fixed',
+            (!headerStatus || !autoHideHeader) && !isMobile && 'header0FixedHover',
         )
         const menuClass = classnames(
             isMobile ? 'header0-menu-navMobile' : 'header0-menu-nav'
@@ -116,7 +117,7 @@ class Nav extends PureComponent {
                     >
                         <ColorChangeLogo className={'header0-logo-img'} onClick={() => Router.push('/')} />
                     </TweenOne>
-                    {!isMobile && <span className={'header0-title'} >T COLLECTION V1</span>}
+                    {!isMobile && <span className={'header0-title'} >{config?.title}</span>}
                     {isMobile && (
                         <div
                             {...dataSource.mobileMenu}

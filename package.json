@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
-    "build": "next build",
+    "dev": "NEXT_PUBLIC_DOMAIN_ENV=development next dev --port 3001",
+    "build": "NEXT_PUBLIC_DOMAIN_ENV=production next build",
     "start": "next start",
     "pm2Start": "pm2 start npm --name 'nextjs-index' -- run start",
     "export": "next export",

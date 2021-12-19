@@ -10,7 +10,7 @@
 /* eslint arrow-parens: 0 */
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
-import Layout from '@/layout'
+import Layouts from '@/layouts'
 import Banner from '@/component/Banner';
 import MyInfo from '@/component/MyInfo';
 import Project from '@/component/Project';
@@ -27,7 +27,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       isMobile: false,
-      hideHeader: true,
+      autoHideHeader: true,
     };
   }
 
@@ -48,12 +48,13 @@ export default class Home extends React.Component {
       || window.pageYOffset
       || (event.srcElement ? event.srcElement.body.scrollTop : 0);
     this.setState({
-      hideHeader: scrollTop <= 80
+      autoHideHeader: scrollTop <= 80
     })
   }
 
   render() {
-    const { isMobile, hideHeader } = this.state;
+    const { isMobile, autoHideHeader } = this.state;
+    console.log(process.env.NEXT_PUBLIC_DOMAIN_ENV, 'process.env.NEXT_PUBLIC_DOMAIN_ENV');
     const children = [
       <Banner
         id="banner"
@@ -101,7 +102,7 @@ export default class Home extends React.Component {
       />,
     ];
     return (
-      <Layout title={'首页'} fixed={true} hideHeader={hideHeader}>
+      <Layouts title={'首页'} fixedHeader={true} autoHideHeader={autoHideHeader}>
         <div
           className="templates-wrapper"
           ref={(d) => {
@@ -110,7 +111,7 @@ export default class Home extends React.Component {
         >
           {children}
         </div>
-      </Layout>
+      </Layouts>
     );
   }
 }

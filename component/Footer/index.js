@@ -21,15 +21,16 @@ class Footer extends Component {
     getLiChildren = (data) =>
         data.map((item, i) => {
             const { title, childWrapper, ...itemProps } = item;
+            const { isImg, ...titleRest } = title
             return (
                 <Col key={i.toString()} {...itemProps} title={null} content={null}>
-                    <h2 {...title}>
+                    <h2 {...titleRest}>
                         {typeof title.children === 'string' &&
-                            title.isImg ? (
-                                <img src={title.children} width="100%" alt="img" />
-                            ) : (
-                                title.children
-                            )}
+                            isImg ? (
+                            <img src={title.children} width="100%" alt="img" />
+                        ) : (
+                            title.children
+                        )}
                     </h2>
                     <div {...childWrapper}>
                         {childWrapper.children.map(getChildrenToRender)}

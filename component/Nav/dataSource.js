@@ -1,4 +1,5 @@
 import { EditOutlined, StarOutlined, Html5Outlined, LoginOutlined } from '@ant-design/icons'
+import config from '@/config'
 export const NavDataSource = {
     page: { className: 'header-page' },
     Menu: {
@@ -26,7 +27,7 @@ export const NavDataSource = {
                 className: 'header0-item',
                 children: {
                     children: [{
-                        children: 'T COLLECTION',
+                        children: `${config?.title || '首页'}`,
                         name: 'text'
                     }],
                 },

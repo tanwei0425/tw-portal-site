@@ -9,7 +9,7 @@
 import React, { useState, useEffect } from 'react'
 import { Spin } from 'antd'
 import Router from 'next/router'
-import Layout from '@/layout'
+import Layouts from '@/layouts'
 const Index = () => {
     const [loading, setLoading] = useState(true)
     useEffect(() => {
@@ -18,7 +18,7 @@ const Index = () => {
         return () => delete window.iframeGoBack
     }, []);
     return (
-        <Layout title={'个人简历'} isHeader={false} isFooter={false}>
+        <Layouts title={'个人简历'} isHeader={false} isFooter={false}>
             <Spin spinning={loading} size={'large'} tip={'加载中'}>
                 <iframe
                     name="resume"
@@ -29,7 +29,7 @@ const Index = () => {
                     frameBorder="0"
                 />
             </Spin>
-        </Layout>
+        </Layouts>
     )
 }
 

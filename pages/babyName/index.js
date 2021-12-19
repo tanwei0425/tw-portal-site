@@ -9,41 +9,15 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Modal, Button, Row, Col, Spin, Form, Select, Input, message, } from 'antd'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
-import axios from 'axios'
-import Layout from '@/layout'
+import service from '@/service/babyName'
+import Layouts from '@/layouts'
 import moment from 'moment';
 import './index.less'
 
 const { confirm } = Modal;
 const { Option } = Select;
 
-const url = 'http://localhost:7002'
-// const url = 'https://api.hellotanwei.cn'
 
-
-const getBabyList = async (params) => {
-    const res = await axios({
-        url: `${url}/web/v1/baby`,
-        params,
-        method: 'get',
-    })
-    return res
-}
-const addBabyName = async (data) => {
-    const res = await axios({
-        url: `${url}/web/v1/baby`,
-        data,
-        method: 'post',
-    })
-    return res
-}
-const deleteBabyName = async (id) => {
-    const res = await axios({
-        url: `${url}/web/v1/baby/${id}`,
-        method: 'delete',
-    })
-    return res
-}
 
 const Index = () => {
     const [dataSource, setDataSource] = useState([]);
@@ -56,23 +30,20 @@ const Index = () => {
     const [modalLoading, setModalLoading] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [form] = Form.useForm();
-
     const changeModal = (status) => {
         setIsModalVisible(status);
         !status && form.resetFields();
     };
-
     const handleOk = () => {
         form.validateFields().then(async (values) => {
-            console.log(values, 'values');
             setModalLoading(true)
-            const { data } = await addBabyName(values)
-            if (data?.code === 200) {
+            const res = await service.createBaby(values)
+            if (res?.code === 200) {
                 message.success('谢谢他叔')
                 changeModal(false)
                 getTable()
             } else {
-                message.error(data.message)
+                message.error(res.message)
             }
             setModalLoading(false)
         })
@@ -84,30 +55,15 @@ const Index = () => {
             icon: <ExclamationCircleOutlined />,
             centered: true,
             onOk: async () => {
-                const { data } = await deleteBabyName(record?.id)
-                if (data?.code === 200) {
+                const res = await service.deleteBaby(record?.id)
+                if (res?.code === 200) {
                     message.success('继续想想')
                     getTable()
                 } else {
-                    message.error(data.message)
+                    message.error(res.message)
                 }
             },
         });
-    }
-
-    const getTable = async (newPage = pageConfig) => {
-        setLoaidng(true)
-        const { data } = await getBabyList(newPage);
-        if (data.code === 200) {
-            setDataSource(data?.data?.list || [])
-            setPageConfig({
-                ...newPage,
-                total: data?.data?.total || 0
-            })
-        } else {
-            message.error(data?.message)
-        }
-        setLoaidng(false)
     }
 
     useEffect(() => {
@@ -116,6 +72,21 @@ const Index = () => {
             pageSize: 10,
         })
     }, [])
+    const getTable = async (newPage = pageConfig) => {
+        setLoaidng(true)
+        const res = await service.getBabyTable(newPage);
+        if (res.code === 200) {
+            setDataSource(res?.data?.list || [])
+            setPageConfig({
+                ...newPage,
+                total: res?.data?.total || 0
+            })
+        } else {
+            message.error(res?.message)
+        }
+        setLoaidng(false)
+    }
+
     const onChange = (paginationConfig) => {
         const newPage = {
             current: paginationConfig?.current,
@@ -170,7 +141,7 @@ const Index = () => {
         },
     ];
     return (
-        <Layout title={'宝宝名字'} isFooter={false}>
+        <Layouts title={'宝宝名字'} isFooter={false}>
             <div className="babyName">
                 <Table
                     className={{ width: '100%' }}
@@ -283,7 +254,7 @@ const Index = () => {
                     </Spin>
                 </Modal>
             </div>
-        </Layout>
+        </Layouts>
     )
 }
 
