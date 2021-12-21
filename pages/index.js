@@ -54,7 +54,6 @@ export default class Home extends React.Component {
 
   render() {
     const { isMobile, autoHideHeader } = this.state;
-    console.log(process.env.NEXT_PUBLIC_DOMAIN_ENV, 'process.env.NEXT_PUBLIC_DOMAIN_ENV');
     const children = [
       <Banner
         id="banner"

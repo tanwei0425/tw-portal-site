@@ -10,9 +10,6 @@ const request = async ({ method = `get`, url = `/`, data = {}, ...restProps }) =
     if (typeof url !== "string") {
         url = `/`;
     }
-    console.log(method, 'method');
-    console.log(url, 'url');
-    console.log(data, 'data');
     const res = await axios({
         method,
         url,
