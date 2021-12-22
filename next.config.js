@@ -23,6 +23,29 @@ const webpackConfig = {
         // 静态优化指标
         autoPrerender: false,
     },
+    // env: 可以在页面上通过process.env.xxx获取全局变量(例如：xxx:"aaaaa",// 配置)
+    env: {},
+
+    // 在pages目录下,哪些后缀文件会被认为是页面
+    // pageExtensions:['jsx','js'],
+
+    // distDir:编译文件输出目录 distDir:"xxx"
+    // distDir:"", // 警告：""会清空整个项目
+
+    // serverRuntimeConfig：只在服务端渲染获取到的配置，用于一些隐私的处理
+    serverRuntimeConfig: {
+        aaa: 'aaaa',
+        // 使用方法
+        // import getConfig from 'next/config'
+        // const {serverRuntimeConfig} = getConfig();
+    },
+    // publicRuntimeConfig：在服务端和客户端渲染都可以获取到的配置
+    publicRuntimeConfig: {
+        bbb: 'bbbb'
+        // 使用方法
+        // import getConfig from 'next/config'
+        // const {publicRuntimeConfig} = getConfig();
+    },
     // exportTrailingSlash:true,
     webpack: (config, { isServer }) => {
         // 解决ant less引入问题

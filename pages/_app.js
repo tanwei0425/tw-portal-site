@@ -14,12 +14,24 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('en');
 function MyApp({ Component, pageProps }) {
-
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('holderStyle').remove();
+    })
+  }
   return <ConfigProvider
     locale={zhCN}
   >
     <Component {...pageProps} />
   </ConfigProvider>
 }
+MyApp.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = {}
 
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx)
+  }
+
+  return { pageProps }
+}
 export default MyApp
