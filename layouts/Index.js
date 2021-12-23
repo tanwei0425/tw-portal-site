@@ -12,7 +12,8 @@ import { enquireScreen } from 'enquire-js';
 import Router from 'next/router'
 import Header from './Header'
 import Footer from './Footer'
-
+import Head from 'next/head';
+import config from '@/config'
 // 路由守卫
 Router.events.on('routeChangeStart', url => {
     // routeChangeStart(url) - 路由开始切换时触发
@@ -47,7 +48,14 @@ class Layout extends Component {
         const { isMobile } = this.state;
         return (
             <>
-                {isHeader && <Header title={title} fixedHeader={fixedHeader} autoHideHeader={autoHideHeader} isMobile={isMobile} />}
+                <Head>
+                    <title>{title} - {config?.title}</title>
+                    <meta charSet='utf-8' />
+                    <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+                    <meta name="keywords" content={`${title} - ${config?.title}`} />
+                    <meta name="description" content={`${title} - ${config?.title}`} />
+                </Head>
+                {isHeader && <Header fixedHeader={fixedHeader} autoHideHeader={autoHideHeader} isMobile={isMobile} />}
                 {children}
                 {isFooter && <Footer isMobile={isMobile} />}
                 <BackTop />

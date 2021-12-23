@@ -7,45 +7,22 @@
  * @FilePath: /web-index/component/Layout/Header.js
  */
 import React, { Component } from 'react';
-import Head from 'next/head';
 import Nav from '@/component/Nav';
 import {
     NavDataSource,
 } from '@/component/Nav/dataSource.js';
-import config from '@/config'
 export default class Header extends Component {
     render() {
-        const { isMobile, autoHideHeader, title, fixedHeader } = this.props
+        const { isMobile, autoHideHeader, fixedHeader } = this.props
         return (
-            <>
-                <Head>
-                    <title>{title} - {config?.title}</title>
-                    <meta charSet='utf-8' />
-                    <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-                    <meta name="keywords" content={`${title} - ${config?.title}`} />
-                    <meta name="description" content={`${title} - ${config?.title}`} />
-                    <style
-                        id="holderStyle"
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                        /* https://github.com/ant-design/ant-design/issues/16037#issuecomment-483140458 */
-                        /* Not only antd, but also any other style if you want to use ssr. */
-                        *, *::before, *::after {
-                          transition: none!important;
-                        }
-                      `,
-                        }}
-                    />
-                </Head>
-                <Nav
-                    id="nav"
-                    key="nav"
-                    fixedHeader={fixedHeader}
-                    autoHideHeader={autoHideHeader}
-                    dataSource={NavDataSource}
-                    isMobile={isMobile}
-                />
-            </>
+            <Nav
+                id="nav"
+                key="nav"
+                fixedHeader={fixedHeader}
+                autoHideHeader={autoHideHeader}
+                dataSource={NavDataSource}
+                isMobile={isMobile}
+            />
         );
     }
 }

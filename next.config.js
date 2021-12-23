@@ -21,7 +21,7 @@ const themeVariables = lessToJS(
 const webpackConfig = {
     devIndicators: {
         // 静态优化指标
-        autoPrerender: false,
+        autoPrerender: true,
     },
     // env: 可以在页面上通过process.env.xxx获取全局变量(例如：xxx:"aaaaa",// 配置)
     env: {},
@@ -46,7 +46,18 @@ const webpackConfig = {
         // import getConfig from 'next/config'
         // const {publicRuntimeConfig} = getConfig();
     },
-    // exportTrailingSlash:true,
+    // 文件夹形式
+    // exportTrailingSlash: true,
+    // 静态部署的时候路由重定向
+    // exportPathMap: function () {
+    //     return {
+    //         '/': { page: '/' },
+    //         '/resume': { page: '/resume/' },
+    //         '/notes': { page: '/notes/' },
+    //         '/babyName': { page: '/babyName/' },
+    //         '/404': { page: '/404/' },
+    //     };
+    // },
     webpack: (config, { isServer }) => {
         // 解决ant less引入问题
         if (isServer) {

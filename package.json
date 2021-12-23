@@ -16,8 +16,6 @@
     "@zeit/next-less": "^1.0.1",
     "antd": "^4.16.13",
     "axios": "^0.24.0",
-    "babel-plugin-import": "^1.13.0",
-    "babel-plugin-module-resolver": "^4.0.0",
     "classnames": "^2.3.1",
     "enquire-js": "^0.2.1",
     "less": "^3.12.2",
@@ -31,7 +29,15 @@
     "rc-tween-one": "^2.7.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-redux": "^7.2.6",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.12.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "serve": "^11.3.2",
+    "redux-devtools-extension": "^2.13.8",
     "webpack-filter-warnings-plugin": "^1.2.1"
   }
 }

@@ -17,13 +17,20 @@ import Project from '@/component/Project';
 import Technique from '@/component/Technique';
 import Resume from '@/component/Resume';
 import AnchorPoint from '@/component/AnchorPoint';
+import commonActions from '@/stores/actions/common'
 import { BannerDataSource } from '@/component/Banner/dataSource'
 import { MyInfoDataSource } from '@/component/MyInfo/dataSource'
 import { ProjectDataSource } from '@/component/Project/dataSource'
 import { TechniqueDataSource } from '@/component/Technique/dataSource'
 import { ResumeDataSource } from '@/component/Resume/dataSource'
-export default class Home extends React.Component {
+import { connect } from 'react-redux';
+class Home extends React.Component {
+  static getInitialProps({ reduxStore }) {
+    reduxStore.dispatch(commonActions.setDemo('class redux getInitialProps 测试'))
+    return { ini: reduxStore.getState() };
+  }
   constructor(props) {
+    console.log(props, 'props');
     super(props);
     this.state = {
       isMobile: false,
@@ -32,6 +39,7 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.demo, 'didmount');
     // 适配手机屏幕;
     enquireScreen((b) => {
       this.setState({ isMobile: !!b });
@@ -114,3 +122,26 @@ export default class Home extends React.Component {
     );
   }
 }
+/** 
+* 和非nextjs使用redux class一致
+* 开始：非getInitialProps正常使用class redux
+*/
+// const mapStateToProps = state => {
+//   return {
+//     demo: state.common.demo,
+//   }
+// };
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     commonActions: bindActionCreators(commonActions, dispatch),
+//     loginActions: bindActionCreators(loginActions, dispatch),
+//   };
+// };
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Home)
+/**
+* 结束：非getInitialProps正常使用class redux
+*/
+export default Home

@@ -8,30 +8,51 @@
  */
 import '@/styles/globals.less'
 import '@/styles/common.less'
+import App from 'next/app'
+import Head from 'next/head';
+import { Provider } from 'react-redux'
+import withReduxStore from '@/lib/with-redux-store'
 import { ConfigProvider } from "antd";
 import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('en');
-function MyApp({ Component, pageProps }) {
-  if (typeof window !== 'undefined') {
-    window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('holderStyle').remove();
-    })
-  }
-  return <ConfigProvider
-    locale={zhCN}
-  >
-    <Component {...pageProps} />
-  </ConfigProvider>
-}
-MyApp.getInitialProps = async ({ Component, ctx }) => {
-  let pageProps = {}
-
-  if (Component.getInitialProps) {
-    pageProps = await Component.getInitialProps(ctx)
+class MyApp extends App {
+  static async getInitialProps({ Component, router, ctx }) {
+    let pageProps = {}
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+    return { pageProps }
   }
 
-  return { pageProps }
+  render() {
+    const { Component, pageProps, reduxStore } = this.props;
+    return (
+      <Provider store={reduxStore}>
+        <Head>
+          {/* 解决antd在生产模式下刷新 组件样式闪一下的问题 */}
+          {typeof window === 'undefined' && (
+            <style
+              id="holderStyle"
+              dangerouslySetInnerHTML={{
+                __html: `
+                *, *::before, *::after {
+                  transition: none!important;
+                }
+                `,
+              }}
+            />
+          )}
+        </Head>
+        <ConfigProvider
+          locale={zhCN}
+        >
+          <Component {...pageProps} />
+        </ConfigProvider>
+      </Provider>
+    )
+  }
 }
-export default MyApp
+
+export default withReduxStore(MyApp)

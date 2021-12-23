@@ -11,15 +11,16 @@ import { Table, Modal, Button, Row, Col, Spin, Form, Select, Input, message, } f
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import service from '@/service/babyName'
 import Layouts from '@/layouts'
+import commonActions from '@/stores/actions/common'
 import moment from 'moment';
+// import { useSelector, useDispatch } from 'react-redux';
 import './index.less'
 
 const { confirm } = Modal;
 const { Option } = Select;
 
-
-
-const Index = () => {
+const Index = (props) => {
+    console.log(props, 'props');
     const [dataSource, setDataSource] = useState([]);
     const [pageConfig, setPageConfig] = useState({
         total: 0,
@@ -258,4 +259,21 @@ const Index = () => {
     )
 }
 
+Index.getInitialProps = async ({ reduxStore }) => {
+    reduxStore.dispatch(commonActions.setDemo('hooks redux getInitialProps 测试'));
+    return { initialState: reduxStore.getState() };
+}
+/**
+   * 和非nextjs使用redux hooks 一致
+   * 开始：非getInitialProps正常使用hooks redux
+   */
+// const dispatch = useDispatch();
+// const { demo } = useSelector((state) => state.common); // 通过useSelector取
+// const setDemo = () => dispatch(commonActions.setDemo('2222'));
+// useEffect(() => {
+//     setDemo()
+// }, [])
+/**
+* 结束：非getInitialProps正常使用hooks redux
+*/
 export default Index
