@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import TweenOne from 'rc-tween-one';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import QueueAnim from 'rc-queue-anim';
+import classnames from 'classnames'
 import { Row, Col } from 'antd';
 import { getChildrenToRender, isImg } from '@/utils';
 
@@ -40,13 +41,17 @@ class Footer extends Component {
         });
 
     render() {
-        const { ...props } = this.props;
+        const { fixedFooter, ...props } = this.props;
         const { dataSource } = props;
         delete props.dataSource;
         delete props.isMobile;
         const childrenToRender = this.getLiChildren(dataSource.block.children);
+        const footerClass = classnames(
+            dataSource.wrapper.className,
+            fixedFooter && 'fixedFooter',
+        )
         return (
-            <div {...props} {...dataSource.wrapper}>
+            <div {...props} className={footerClass} >
                 <OverPack {...dataSource.OverPack}>
                     <QueueAnim
                         type="bottom"

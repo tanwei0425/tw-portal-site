@@ -15,11 +15,12 @@ import {
 export default class Index extends Component {
 
     render() {
-        const { isMobile } = this.props
+        const { isMobile, fixedFooter } = this.props
         return (
             <Footer
                 id="footer"
                 key="footer"
+                fixedFooter={fixedFooter}
                 dataSource={FooterDataSource}
                 isMobile={isMobile}
             />

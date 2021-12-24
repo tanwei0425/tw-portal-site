@@ -44,7 +44,7 @@ class Layout extends Component {
     }
     render() {
         // fixedHeader 是否固定header
-        const { children, title, fixedHeader, autoHideHeader, isHeader = true, isFooter = true } = this.props;
+        const { children, title, fixedHeader, fixedFooter, autoHideHeader, isHeader = true, isFooter = true } = this.props;
         const { isMobile } = this.state;
         return (
             <>
@@ -57,7 +57,7 @@ class Layout extends Component {
                 </Head>
                 {isHeader && <Header fixedHeader={fixedHeader} autoHideHeader={autoHideHeader} isMobile={isMobile} />}
                 {children}
-                {isFooter && <Footer isMobile={isMobile} />}
+                {isFooter && <Footer fixedFooter={fixedFooter} isMobile={isMobile} />}
                 <BackTop />
             </>
         );
