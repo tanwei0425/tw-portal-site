@@ -1,9 +1,10 @@
 import React from 'react'
 import { List, Avatar, Space } from 'antd'
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { dateTimeFormat } from '@/utils'
 import './index.less'
 
-const notesTag = ({ data = [], loading }) => {
+const notesTag = ({ data = [], pageConfig, onChange, loading }) => {
     return (
         <>
             <div className='notes-title'>
@@ -14,10 +15,12 @@ const notesTag = ({ data = [], loading }) => {
                     itemLayout="vertical"
                     size="large"
                     pagination={{
-                        onChange: page => {
-                            console.log(page);
-                        },
-                        pageSize: 3,
+                        showQuickJumper: true,
+                        showSizeChanger: true,
+                        pageSizeOptions: ["10", "20", "50", "80"],
+                        showTotal: (total, range) => `显示${range[0]}到${range[1]}, 共 ${total} 条数据`,
+                        onChange,
+                        ...pageConfig,
                     }}
                     loading={loading}
                     dataSource={data}
@@ -31,18 +34,21 @@ const notesTag = ({ data = [], loading }) => {
                             ]}
                             extra={
                                 <img
-                                    width={272}
+                                    width={222}
                                     alt="logo"
                                     src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
                                 />
                             }
                         >
                             <List.Item.Meta
-                                avatar={<Avatar src={item.avatar} />}
-                                title={<a href={item.href}>{item.title}</a>}
-                                description={item.description}
+                                avatar={<Avatar size={'large'} src={item?.avatar || '/static/user-logo.png'} />}
+                                title={<a href={item.id}>{item.title}</a>}
+                                description={<>
+                                    <div>{item?.createdAt && dateTimeFormat(item.createdAt)}</div>
+                                    <div>{item?.updatedAt && dateTimeFormat(item.updatedAt)}</div>
+                                </>}
                             />
-                            {item.content}
+                            <span style={{ color: 'rgba(0, 0, 0, 0.45)' }}>{item.content || '暂无描述'}</span>
                         </List.Item>
                     )}
                 />

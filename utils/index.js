@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { Button } from 'antd';
-
+import moment from 'moment'
 /**
  * @name: 
  * @test: test font
@@ -25,7 +25,7 @@ export const isImg = /^http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?/;
  * @param {type} 
  * @return {type} 
  */
-export const getChildrenToRender = (item, i) => {
+const getChildrenToRender = (item, i) => {
     let tag = item.name.indexOf('title') === 0 ? 'h1' : 'div';
     tag = item.href ? 'a' : tag;
     let children = typeof item.children === 'string' && item.children.match(isImg)
@@ -38,3 +38,17 @@ export const getChildrenToRender = (item, i) => {
     }
     return React.createElement(tag, { key: i.toString(), ...item }, children);
 };
+/**
+ * 
+ * @param {*} target UTC时间
+ * @param {*} formatType // 转换的类型
+ */
+const dateTimeFormat = (target, formatType = 'YYYY-MM-DD HH:mm:ss') => {
+    if (!target) return;
+    const res = moment(target).format(formatType);
+    return res;
+};
+export {
+    getChildrenToRender,
+    dateTimeFormat,
+}

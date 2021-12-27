@@ -16,9 +16,16 @@ const getAllNotesClassification = (data) => {
         data,
     });
 }
-
+const getArticleList = (data) => {
+    return request({
+        url: `${servicesPath}/v1/notes/article`,
+        method: 'get',
+        data,
+    });
+}
 
 
 export default {
     getAllNotesClassification,
+    getArticleList,
 };
