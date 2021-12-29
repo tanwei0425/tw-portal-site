@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Spin } from 'antd'
 import Layouts from '@/layouts'
 import service from '@/service/notes'
 import NotesTag from '@/pages/notes/notesTag'
 import NotesList from '@/pages/notes/notesList'
 import './index.less'
-// const listData = [];
-// for (let i = 0; i < 23; i++) {
-//     listData.push({
-//         href: 'https://ant.design',
-//         title: `ant design part ${i}`,
-//         avatar: 'https://joeschmoe.io/api/v1/random',
-//         description:
-//             'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-//         content:
-//             'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-//     });
-// }
+
 const Index = () => {
     const [tagLoading, setTagLoading] = useState(false)
     const [listLoading, setListLoading] = useState(false)
@@ -37,8 +25,16 @@ const Index = () => {
         if (selectedTags.includes(val)) {
             const nextSelectedTags = selectedTags.filter(t => t !== val);
             setSelectedTags([...nextSelectedTags])
+            getArticleList({
+                current: 1,
+                pageSize: 10,
+            }, nextSelectedTags)
         } else {
             setSelectedTags([...selectedTags, val])
+            getArticleList({
+                current: 1,
+                pageSize: 10,
+            }, [...selectedTags, val])
         }
     }
 
@@ -51,9 +47,15 @@ const Index = () => {
         setTagLoading(false)
     }
 
-    const getArticleList = async (newPage = pageConfig) => {
+    const getArticleList = async (newPage = pageConfig, searchData = []) => {
         setListLoading(true)
-        const res = await service.getArticleList(newPage);
+        console.log(searchData, 'searchData');
+        const res = await service.getArticleList(
+            {
+                ...newPage,
+                classification: searchData?.join(),
+            }
+        );
         if (res.code === 200) {
             console.log(res, 'res');
             setListData(res?.data?.list || [])
@@ -70,7 +72,7 @@ const Index = () => {
             current,
             pageSize,
         }
-        getArticleList(newPage)
+        getArticleList(newPage, selectedTags)
     }
     return (
         <Layouts title={'随记'} isFooter={false} >

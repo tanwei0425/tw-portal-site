@@ -44,11 +44,12 @@ const notesTag = ({ data = [], pageConfig, onChange, loading }) => {
                                 avatar={<Avatar size={'large'} src={item?.avatar || '/static/user-logo.png'} />}
                                 title={<a href={item.id}>{item.title}</a>}
                                 description={<>
-                                    <div>{item?.createdAt && dateTimeFormat(item.createdAt)}</div>
-                                    <div>{item?.updatedAt && dateTimeFormat(item.updatedAt)}</div>
+                                    {/* <div>创建于：{item?.createdAt && dateTimeFormat(item.createdAt)}</div> */}
+                                    <div>更新于：{item?.updatedAt && dateTimeFormat(item.updatedAt)}</div>
+                                    <div>作者：{item?.author}</div>
                                 </>}
                             />
-                            <span style={{ color: 'rgba(0, 0, 0, 0.45)' }}>{item.content || '暂无描述'}</span>
+                            <span style={{ color: 'rgba(0, 0, 0, 0.45)' }}>{item.description || '暂无描述'}</span>
                         </List.Item>
                     )}
                 />
