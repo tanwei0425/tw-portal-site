@@ -74,13 +74,17 @@ const Index = () => {
         }
         getArticleList(newPage, selectedTags)
     }
+
+    const listItemClick = (id) => {
+        console.log(id, 'id');
+    }
     return (
         <Layouts title={'随记'} isFooter={false} >
             <div className="notes">
                 <div className='notes-layout'>
                     <div className='notes-layout-content'>
                         <NotesTag data={tagData} loading={tagLoading} selectedTags={selectedTags} tagsOnChange={tagsOnChange} />
-                        <NotesList pageConfig={pageConfig} onChange={onChange} data={listData} loading={listLoading} />
+                        <NotesList pageConfig={pageConfig} onChange={onChange} listItemClick={listItemClick} data={listData} loading={listLoading} />
                     </div>
                 </div>
             </div>
