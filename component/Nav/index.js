@@ -26,7 +26,11 @@ class Nav extends PureComponent {
         });
     };
     componentDidMount() {
-        this.setState({ current: Router?.router?.pathname })
+        let pathname = Router?.router?.pathname
+        if (pathname === '/notes/details/[id]') {
+            pathname = '/notes'
+        }
+        this.setState({ current: pathname })
     }
 
     handleClick = (e) => {

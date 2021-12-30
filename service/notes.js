@@ -24,8 +24,15 @@ const getArticleList = (data) => {
     });
 }
 
+const getDetils = (id) => {
+    return request({
+        url: `${servicesPath}/v1/notes/article/${id}`,
+        method: 'get',
+    });
+}
 
 export default {
     getAllNotesClassification,
     getArticleList,
+    getDetils,
 };

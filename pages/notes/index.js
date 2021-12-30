@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router';
+import { Breadcrumb } from 'antd'
 import Layouts from '@/layouts'
 import service from '@/service/notes'
 import NotesTag from '@/pages/notes/notesTag'
@@ -6,6 +8,7 @@ import NotesList from '@/pages/notes/notesList'
 import './index.less'
 
 const Index = () => {
+    const router = useRouter();
     const [tagLoading, setTagLoading] = useState(false)
     const [listLoading, setListLoading] = useState(false)
     const [tagData, setTagData] = useState([])
@@ -77,12 +80,16 @@ const Index = () => {
 
     const listItemClick = (id) => {
         console.log(id, 'id');
+        router.push('/notes/details/[id]', `/notes/details/${id}`)
     }
     return (
         <Layouts title={'随记'} isFooter={false} >
             <div className="notes">
                 <div className='notes-layout'>
                     <div className='notes-layout-content'>
+                        <div className='notes-layout-content-title'>
+                            <Breadcrumb.Item separator=''>随笔</Breadcrumb.Item>
+                        </div>
                         <NotesTag data={tagData} loading={tagLoading} selectedTags={selectedTags} tagsOnChange={tagsOnChange} />
                         <NotesList pageConfig={pageConfig} onChange={onChange} listItemClick={listItemClick} data={listData} loading={listLoading} />
                     </div>
