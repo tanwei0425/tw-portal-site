@@ -12,14 +12,21 @@
             margin: 0px auto;
             display: flex;
             flex-direction: column;
+            &-title{
+                transition: all 0.3s ease 0s;
+                transform: translateX(0px);
+                height: 52px;
+                line-height: 52px;
+            }
         }
     }
-    &-tag{
+    &-tag {
         position: fixed;
         transform: translate(-216px, 52px);
         width: 200px;
         background-color: #fff;
-       
+        min-height:200px;
+        border:1px solid #f0f0f0;
         &-title{
             width: 100%;
             border-bottom: 1px solid #f0f0f0;
@@ -36,18 +43,18 @@
         &-content{
             padding: 15px;
         }
+        &:hover{
+            border-color: transparent;
+            box-shadow:rgb(217 217 217) 5px 6px 4px -1px;
+        }
     }
-    &-title{
-        transition: all 0.3s ease 0s;
-        transform: translateX(0px);
-        height: 52px;
-        line-height: 52px;
-    }
+ 
     &-list{
         width: 100%;
         background-color: #fff;
         padding: 16px;
         margin-bottom: 52px;
+        box-shadow: rgb(217 217 217) 5px 6px 4px -1px;
         &-item{
             cursor: pointer;
             &-title{

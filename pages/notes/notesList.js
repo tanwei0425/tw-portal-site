@@ -7,9 +7,6 @@ import './index.less'
 const notesTag = ({ data = [], pageConfig, onChange, listItemClick, loading }) => {
     return (
         <>
-            <div className='notes-title'>
-                随笔
-            </div>
             <div className='notes-list'>
                 <List
                     itemLayout="vertical"
