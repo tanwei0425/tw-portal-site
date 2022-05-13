@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { Breadcrumb } from 'antd'
+import { enquireScreen } from 'enquire-js';
 import Layouts from '@/layouts'
 import service from '@/service/notes'
 import NotesTag from '@/pages/notes/notesTag'
@@ -9,6 +10,7 @@ import './index.less'
 
 const Index = () => {
     const router = useRouter();
+    const [isMobile, setIsMobile] = useState(false)
     const [tagLoading, setTagLoading] = useState(false)
     const [listLoading, setListLoading] = useState(false)
     const [tagData, setTagData] = useState([])
@@ -22,6 +24,7 @@ const Index = () => {
     useEffect(() => {
         getAllNotesClassification()
         getArticleList()
+        enquireScreen((mobileStatus) => setIsMobile(!!mobileStatus));
     }, [])
 
     const tagsOnChange = (val, checked) => {
@@ -79,7 +82,6 @@ const Index = () => {
     }
 
     const listItemClick = (id) => {
-        console.log(id, 'id');
         router.push('/notes/details/[id]', `/notes/details/${id}`)
     }
     return (
@@ -87,11 +89,11 @@ const Index = () => {
             <div className="notes">
                 <div className='notes-layout'>
                     <div className='notes-layout-content'>
-                        <div className='notes-layout-content-title'>
-                            <Breadcrumb.Item separator=''>随笔</Breadcrumb.Item>
+                        <div className='notes-layout-content-title' style={{ paddingLeft: isMobile ? '6px' : 0 }}>
+                            <Breadcrumb.Item separator='' >随笔</Breadcrumb.Item>
                         </div>
                         <NotesTag data={tagData} loading={tagLoading} selectedTags={selectedTags} tagsOnChange={tagsOnChange} />
-                        <NotesList pageConfig={pageConfig} onChange={onChange} listItemClick={listItemClick} data={listData} loading={listLoading} />
+                        <NotesList isMobile={isMobile} pageConfig={pageConfig} onChange={onChange} listItemClick={listItemClick} data={listData} loading={listLoading} />
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@
     "build": "NEXT_PUBLIC_DOMAIN_ENV=production next build",
     "start": "next start",
     "pm2Start": "pm2 start npm --name 'nextjs-index' -- run start",
+    "pm2Stop": "pm2 stop npm --name 'nextjs-index' && pm2 delete npm --name 'nextjs-index'",
     "export": "next export",
     "analyzer": "ANALYZE=true next build"
   },
@@ -36,8 +37,8 @@
   "devDependencies": {
     "babel-plugin-import": "^1.12.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "serve": "^11.3.2",
     "redux-devtools-extension": "^2.13.8",
+    "serve": "^11.3.2",
     "webpack-filter-warnings-plugin": "^1.2.1"
   }
 }

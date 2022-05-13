@@ -4,7 +4,7 @@ import { EyeOutlined } from '@ant-design/icons';
 import { dateTimeFormat } from '@/utils'
 import './index.less'
 
-const notesTag = ({ data = [], pageConfig, onChange, listItemClick, loading }) => {
+const notesTag = ({ data = [], isMobile, pageConfig, onChange, listItemClick, loading }) => {
     return (
         <>
             <div className='notes-list'>
@@ -27,13 +27,13 @@ const notesTag = ({ data = [], pageConfig, onChange, listItemClick, loading }) =
                             className='notes-list-item'
                             key={item.title}
                             actions={[
-                                <Space><EyeOutlined />152</Space>,
+                                <Space><EyeOutlined />{item?.readNumber}</Space>,
                             ]}
 
                             onClick={() => listItemClick(item.id)}
                             extra={
-                                <img
-                                    width={222}
+                                !isMobile && <img
+                                    width={270}
                                     alt="logo"
                                     src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
                                 />
@@ -43,7 +43,7 @@ const notesTag = ({ data = [], pageConfig, onChange, listItemClick, loading }) =
                                 avatar={<Avatar size={'large'} src={item?.avatar || '/static/user-logo.png'} />}
                                 title={<a className='notes-list-item-title'>{item.title}</a>}
                                 description={<>
-                                    {/* <div>创建于：{item?.createdAt && dateTimeFormat(item.createdAt)}</div> */}
+                                    <div>创建于：{item?.createdAt && dateTimeFormat(item.createdAt)}</div>
                                     <div>更新于：{item?.updatedAt && dateTimeFormat(item.updatedAt)}</div>
                                     <div>作者：{item?.author}</div>
                                 </>}

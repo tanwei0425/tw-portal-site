@@ -38,8 +38,8 @@ class Layout extends Component {
 
     componentDidMount() {
         // 适配手机屏幕;
-        enquireScreen((b) => {
-            this.setState({ isMobile: !!b });
+        enquireScreen((mobileStatus) => {
+            this.setState({ isMobile: !!mobileStatus });
         });
     }
     render() {

@@ -20,6 +20,7 @@ class MyDocument extends Document {
             }
           </style>
         </Head>
+
         <body className="custom_class">
           <Main />
           <NextScript />

@@ -4,8 +4,10 @@ import { Breadcrumb, Skeleton, Avatar } from 'antd'
 import Layouts from '@/layouts'
 import service from '@/service/notes'
 import { dateTimeFormat } from '@/utils'
+// import Prism from 'prismjs';
 import '../index.less'
-
+// @import 'https://resource.hellotanwei.cn/static/css/prism.css';
+{/* <script src="https://resource.hellotanwei.cn/static/js/prism.js"></script> */ }
 const Details = () => {
     const router = useRouter();
     const [loading, setLoading] = useState(false)
@@ -40,7 +42,7 @@ const Details = () => {
                                         <Avatar size={'large'} className='notes-details-basicInfo-div-avatar' src={data?.avatar || '/static/user-logo.png'} />
                                         <span>{data?.author}</span>
                                     </div>
-                                    <div className='notes-details-basicInfo-div'>浏览量：123</div>
+                                    <div className='notes-details-basicInfo-div'>浏览量：{data?.readNumber}</div>
                                     <div className='notes-details-basicInfo-div'>创建于：{data?.createdAt && dateTimeFormat(data.createdAt)}</div>
                                     <div className='notes-details-basicInfo-div'>更新于：{data?.updatedAt && dateTimeFormat(data.updatedAt)}</div>
                                 </div>

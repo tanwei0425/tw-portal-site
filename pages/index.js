@@ -23,7 +23,6 @@ import { MyInfoDataSource } from '@/component/MyInfo/dataSource'
 import { ProjectDataSource } from '@/component/Project/dataSource'
 import { TechniqueDataSource } from '@/component/Technique/dataSource'
 import { ResumeDataSource } from '@/component/Resume/dataSource'
-import { connect } from 'react-redux';
 class Home extends React.Component {
   static getInitialProps({ reduxStore }) {
     reduxStore.dispatch(commonActions.setDemo('class redux getInitialProps 测试'))
@@ -39,10 +38,9 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.demo, 'didmount');
     // 适配手机屏幕;
-    enquireScreen((b) => {
-      this.setState({ isMobile: !!b });
+    enquireScreen((mobileStatus) => {
+      this.setState({ isMobile: !!mobileStatus });
     });
     window.addEventListener('scroll', this.bindHandleScroll)
   }
